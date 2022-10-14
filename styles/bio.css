@@ -16,7 +16,9 @@
 /* ##   site Container   ## */
 /* ##   branding   ## */
 /* ##   buttons   ## */
-/* ## Responsive breakpoints ## */ /* ## Reset ## */
+/* ## responsive breakpoints ## */
+/* ## utiilty mixins ## */
+/* ## Reset ## */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -86,4 +88,78 @@ span {
   max-width: 1044px;
   padding: 0 1rem;
   margin: 0 auto;
+}
+
+.flex-container, .topbar__container, .topbar__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ###  header/navigation   ### */
+.topbar {
+  background-color: #323232;
+}
+@media screen and (min-width: 768px) {
+  .topbar__container {
+    padding: 0 2.25rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 3.5rem;
+  }
+}
+.topbar__back-to-home {
+  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .topbar__back-to-home {
+    padding: 0;
+    margin: 0;
+  }
+}
+.topbar__back-to-home, .topbar__navigation, .topbar__items {
+  flex: 0 0 100%;
+}
+@media screen and (min-width: 768px) {
+  .topbar__back-to-home, .topbar__navigation, .topbar__items {
+    flex: 0 0 auto;
+  }
+}
+.topbar__items {
+  list-style: none;
+  align-items: flex-start;
+}
+@media screen and (min-width: 768px) {
+  .topbar__items {
+    gap: 2rem;
+  }
+}
+.topbar__item, .topbar__link {
+  transition: all 0.2s;
+}
+.topbar__item {
+  flex: 0 0 50%;
+  padding: 0 1rem 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+.topbar__item:hover, .topbar__item--active {
+  border-bottom: 0.25rem solid #FFFFFF;
+  cursor: pointer;
+}
+.topbar__item:hover > a, .topbar__item--active > a {
+  color: #FFFFFF;
+}
+@media screen and (min-width: 768px) {
+  .topbar__item {
+    padding: 1.5rem 0;
+    flex: 0 0 auto;
+  }
+}
+.topbar__link {
+  color: #AFAFAF;
 }/*# sourceMappingURL=bio.css.map */

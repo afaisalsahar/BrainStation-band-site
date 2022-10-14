@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-/* ## Responsive breakpoints ## */
+/* ## responsive breakpoints ## */
 
 @mixin tablet-responsive {
     @media screen and (min-width: $tablet-resolution) {
@@ -12,4 +12,10 @@
     @media screen and (min-width: $desktop-resolution) {
         @content;
     }
+}
+
+/* ## utiilty mixins ## */
+
+@mixin align-text($direction) {
+    text-align: $direction;;
 }
