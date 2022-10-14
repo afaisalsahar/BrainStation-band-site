@@ -88,6 +88,49 @@
 
 /* ###  footer/contact   ### */
 
+.hero {
+    background: url("../assets/images/hero-bio.jpg") center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 30vh;
+    
+    @include tablet-responsive {
+        height: 60vh;
+    }
+    
+    @include desktop-responsive {
+        height: 80vh;
+    }
+
+    &__overlay {
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+    }
+
+    &__container {
+        @extend .container;
+        padding: 0 $size-increment-x3;
+
+        height: 100%;
+        justify-content: flex-start;
+
+        @include tablet-responsive {
+            padding: 0 $size-increment-x5-1;
+        }
+    }
+
+    &__title {
+        color: $primary-color-subsidiary;
+
+        @include tablet-responsive {
+            font-size: $size-increment-x8;
+        }
+    }
+}
+
+/* ###  footer/contact   ### */
+
 .contact {
     background-color: $primary-color-main;
     padding: $size-increment-x5 0 $size-increment-x4;
