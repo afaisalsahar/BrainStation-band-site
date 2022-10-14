@@ -80,17 +80,13 @@ span {
 }
 
 .topbar__logo,
-.get-in-touch__logo {
+.contact__logo {
   max-width: 120px;
 }
 
-.container {
+.container, .topbar__container, .topbar__items, .contact__container {
   max-width: 1044px;
-  padding: 0 1rem;
   margin: 0 auto;
-}
-
-.flex-container, .topbar__container, .topbar__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -162,4 +158,123 @@ span {
 }
 .topbar__link {
   color: #AFAFAF;
+}
+
+/* ###  footer/contact   ### */
+.contact {
+  background-color: #323232;
+  padding: 2rem 0 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .contact {
+    padding: 3.5rem 0;
+  }
+}
+.contact__container {
+  padding: 0 1rem;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 768px) {
+  .contact__container {
+    padding: 0 2.25rem;
+  }
+}
+.contact__title {
+  flex: 1 0 100%;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .contact__title {
+    font-size: 2.5rem;
+    order: -1;
+    flex: 1 1 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__title {
+    flex: 0 1 30%;
+  }
+}
+.contact__social {
+  flex: 1 0 100%;
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__social {
+    order: -1;
+    flex: 1 1 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__social {
+    flex: 0 1 30%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon {
+    width: 30px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon--facebook {
+    width: 18px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon--twitter {
+    width: 35px;
+  }
+}
+.contact__title, .contact__social, .contact__point {
+  margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__title, .contact__social, .contact__point {
+    margin-bottom: 0;
+  }
+}
+.contact__point {
+  flex: 1 0 100%;
+}
+@media screen and (min-width: 768px) {
+  .contact__point {
+    flex: 1 0 30%;
+    margin: 3rem 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__point {
+    flex: 0 1 30%;
+  }
+}
+.contact__person, .contact__location {
+  margin-bottom: 1rem;
+}
+.contact__name, .contact__company {
+  font-weight: 700;
+}
+.contact__title, .contact__copyright {
+  color: #FFFFFF;
+}
+.contact__back-to-home {
+  display: block;
+  padding: 2rem 0 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__back-to-home {
+    flex: 1 1 30%;
+    padding: 0;
+    order: -1;
+    text-align: right;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__back-to-home {
+    flex: 1 0 40%;
+  }
+}
+.contact__copyright {
+  flex: 1 0 100%;
+  font-size: 12px;
 }/*# sourceMappingURL=bio.css.map */

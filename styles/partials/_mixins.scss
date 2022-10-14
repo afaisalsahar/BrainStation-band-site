@@ -19,3 +19,6 @@
 @mixin align-text($direction) {
     text-align: $direction;;
 }
+@mixin flex-item-realestate($grow, $shrink, $base) {
+    flex: $grow $shrink $base;
+}
