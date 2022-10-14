@@ -1,0 +1,22 @@
+@use './variables' as *;
+
+@font-face {
+    src: url("#{$font-path}/AvenirNextLTPro-Regular.woff2") format("woff2");
+
+    font-family: "AvenirNext";
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("#{$font-path}/AvenirNextLTPro-Demi.woff2") format("woff2");
+
+    font-family: "AvenirNext";
+    font-weight: 600;
+}
+
+@font-face {
+    src: url("#{$font-path}/AvenirNextLTPro-Bold.woff2") format("woff2");
+
+    font-family: "AvenirNext";
+    font-weight: 700;
+}

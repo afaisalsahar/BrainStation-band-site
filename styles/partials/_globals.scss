@@ -1,0 +1,43 @@
+@use './variables' as *;
+@use './fontface' as *;
+
+/* ## Default Styles ## */
+
+body {
+    font-family: $font-face;
+    font-size: $size-increment-x3;
+    line-height: $size-increment-x4;
+    font-weight: $font-weight-regular;
+    color: $primary-color-main;
+}
+a {
+    text-decoration: none;
+    font-style: normal;
+    color: $primary-color-subsidiary;
+}
+h1, h2 {
+    font-size: $size-increment-x5;
+    line-height: $size-increment-x5;
+    font-weight: $font-weight-demi;
+}
+h3, h4 {
+    font-size: 1.2rem;
+    line-height: $size-increment-x4;
+    font-weight: $font-weight-demi;
+}
+img {width: 100%;}
+span {
+    font-style: normal;
+    display: block;
+    color: $primary-color-subsidiary;
+    line-height: $size-increment-x4;
+}
+.topbar__logo,
+.get-in-touch__logo {
+    max-width: $logo-max-width;
+}
+.container {
+    max-width: 1044px;
+    padding: 0 $size-increment-x3;
+    margin: 0 auto;
+}

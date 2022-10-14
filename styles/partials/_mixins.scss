@@ -1,0 +1,15 @@
+@use './variables' as *;
+
+/* ## Responsive breakpoints ## */
+
+@mixin tablet-responsive {
+    @media screen and (min-width: $tablet-resolution) {
+        @content;
+    }
+}
+
+@mixin desktop-responsive {
+    @media screen and (min-width: $desktop-resolution) {
+        @content;
+    }
+}

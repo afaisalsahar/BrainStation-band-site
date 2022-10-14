@@ -1,0 +1,47 @@
+/* ##   size increments   ## */
+
+$size-increment-x1: .25rem; /* 4px */
+$size-increment-x2: .5rem; /* 8px */
+$size-increment-x3: 1rem; /* 16px */
+$size-increment-x4: 1.5rem; /* 24px */
+$size-increment-x5: 2rem; /* 32px */
+$size-increment-x5-1: 2.25rem; /* 36px */
+$size-increment-x6: 2.5rem; /* 40px */
+$size-increment-x7: 3rem; /* 48px */ 
+$size-increment-x8: 3.5rem; /* 56px */
+$size-increment-x9: 4rem; /* 64px */ 
+$size-increment-x9: 5rem; /* 80px */ 
+
+/* ##   colors   ## */
+
+$primary-color-main: #323232;
+$primary-color-alternate: #AFAFAF;
+$primary-color-subsidiary: #FFFFFF;
+
+$secondary-color-main: #000000;
+$secondary-color-alternate: #E1E1E1;
+$secondary-color-subsidiary: #FAFAFA;
+
+/* ##   font   ## */
+$font-path: "../assets/font";
+$font-face: "AvenirNext";
+$font-weight-regular: 400;
+$font-weight-demi: 600;
+$font-weight-bold: 700;
+
+/* ##   responsive breakpoint   ## */ 
+
+$desktop-resolution: 1280px;
+$tablet-resolution: 768px;
+
+/* ##   site Container   ## */ 
+$site-container: 1044px;
+
+/* ##   branding   ## */ 
+
+$logo-max-width: 120px;
+$logo-max-height: 20px;
+
+/* ##   buttons   ## */ 
+
+$large-screen-cta-min-width: 150px;

@@ -1,0 +1,89 @@
+/* ##   size increments   ## */
+/* 4px */
+/* 8px */
+/* 16px */
+/* 24px */
+/* 32px */
+/* 36px */
+/* 40px */
+/* 48px */
+/* 56px */
+/* 64px */
+/* 80px */
+/* ##   colors   ## */
+/* ##   font   ## */
+/* ##   responsive breakpoint   ## */
+/* ##   site Container   ## */
+/* ##   branding   ## */
+/* ##   buttons   ## */
+/* ## Responsive breakpoints ## */ /* ## Reset ## */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+@font-face {
+  src: url("../assets/font/AvenirNextLTPro-Regular.woff2") format("woff2");
+  font-family: "AvenirNext";
+  font-weight: 400;
+}
+@font-face {
+  src: url("../assets/font/AvenirNextLTPro-Demi.woff2") format("woff2");
+  font-family: "AvenirNext";
+  font-weight: 600;
+}
+@font-face {
+  src: url("../assets/font/AvenirNextLTPro-Bold.woff2") format("woff2");
+  font-family: "AvenirNext";
+  font-weight: 700;
+}
+/* ## Default Styles ## */
+body {
+  font-family: "AvenirNext";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: #323232;
+}
+
+a {
+  text-decoration: none;
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+h1, h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+h3, h4 {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+}
+
+span {
+  font-style: normal;
+  display: block;
+  color: #FFFFFF;
+  line-height: 1.5rem;
+}
+
+.topbar__logo,
+.get-in-touch__logo {
+  max-width: 120px;
+}
+
+.container {
+  max-width: 1044px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}/*# sourceMappingURL=bio.css.map */
