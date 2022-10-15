@@ -84,7 +84,7 @@ span {
   max-width: 120px;
 }
 
-.container, .topbar__container, .topbar__items, .hero__container, .contact__container {
+.container, .topbar__container, .topbar__items, .hero__container, .about__container, .contact__container {
   max-width: 1044px;
   margin: 0 auto;
   display: flex;
@@ -197,6 +197,63 @@ span {
 @media screen and (min-width: 768px) {
   .hero__title {
     font-size: 3.5rem;
+  }
+}
+
+/* ###  about/bio   ### */
+.about {
+  padding: 1.5rem 1rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .about {
+    padding: 3.5rem 0 1rem;
+  }
+}
+.about__container {
+  justify-content: flex-start;
+}
+@media screen and (min-width: 768px) {
+  .about__container {
+    padding: 0 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about__content {
+    width: 90%;
+    margin: 2rem auto;
+  }
+}
+.about__image {
+  margin: 1rem 0;
+}
+.about__quotation {
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .about__bio {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.about__sub-title {
+  margin: 1.5rem 0 1rem;
+}
+@media screen and (min-width: 768px) {
+  .about__sub-title {
+    flex: 1 0 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about__text {
+    flex: 1 0 40%;
+  }
+}
+.about__text--first {
+  margin: 0 0 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .about__text--first {
+    margin: 0 2rem 0 0;
   }
 }
 

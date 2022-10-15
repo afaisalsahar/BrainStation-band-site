@@ -129,6 +129,69 @@
     }
 }
 
+/* ###  about/bio   ### */
+
+.about {
+    padding: $size-increment-x4 $size-increment-x3 $size-increment-x3;
+
+    @include tablet-responsive {
+        padding: $size-increment-x8 0 $size-increment-x3;
+    }
+
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+
+        @include tablet-responsive {
+            padding: 0 $size-increment-x5-1;
+        }
+    }
+
+    &__content {
+
+        @include tablet-responsive {
+            width: 90%;
+            margin: $size-increment-x5 auto;
+        }
+    }
+    
+    &__image {
+        margin: $size-increment-x3 0;
+    }
+
+    &__quotation {
+        font-weight: $font-weight-bold;
+    }
+    
+    &__bio {
+
+        @include tablet-responsive {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__sub-title {
+        margin: $size-increment-x4 0 $size-increment-x3;
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 0, 100%);
+        }
+    }
+    &__text {
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 0, 40%);
+        }
+    }
+    &__text--first {
+        margin: 0 0 $size-increment-x3 0;
+
+        @include tablet-responsive {
+            margin: 0 $size-increment-x5 0 0;
+        }
+    }
+}
+
 /* ###  footer/contact   ### */
 
 .contact {
