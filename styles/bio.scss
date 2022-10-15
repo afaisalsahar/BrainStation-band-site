@@ -192,6 +192,44 @@
     }
 }
 
+/* ###  gallery   ### */
+
+.gallery {
+    background-color: $secondary-color-subsidiary;
+
+    padding: $size-increment-x4 $size-increment-x3 $size-increment-x3;
+
+    @include tablet-responsive {
+        padding: $size-increment-x8 0 $size-increment-x5;
+    }
+
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+    }
+    &__title {
+        margin-bottom: $size-increment-x3;    
+    }
+
+    &__items {
+        list-style: none;
+
+        @include tablet-responsive {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: $size-increment-x3;
+        }
+    }
+    &__item {
+        margin-bottom: $size-increment-x2;
+        @include tablet-responsive {
+            width: 30%;
+        }
+    }
+
+}
+
 /* ###  footer/contact   ### */
 
 .contact {
