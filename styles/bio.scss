@@ -19,30 +19,24 @@
             flex-wrap: nowrap;
             gap: $size-increment-x8;
         }
-        @include desktop-responsive {
-            padding: 0;
-        }
+        @include desktop-responsive {padding: 0;}
     }
 
     &__back-to-home {
         padding: $size-increment-x3 0;
 
         @include align-text(center);
-
         @include tablet-responsive {
             padding: 0;
             margin: 0;
         }    
     }
 
-    &__back-to-home,
-    &__navigation,
+    &__back-to-home, &__navigation,
     &__items {
         flex: 0 0 100%;
 
-        @include tablet-responsive {
-            flex: 0 0 auto;
-        }
+        @include tablet-responsive {flex: 0 0 auto;}
     }
 
     &__items {
@@ -52,15 +46,10 @@
         list-style: none;
         align-items: flex-start;
 
-        @include tablet-responsive {
-            gap: $size-increment-x5;
-        }
+        @include tablet-responsive {gap: $size-increment-x5;}
     }
 
-    &__item,
-    &__link {
-        transition: all .2s ease;
-    }
+    &__item, &__link {transition: all .2s ease;}
 
     &__item {
         flex: 0 0 50%;
@@ -78,38 +67,28 @@
         }
 
         @include align-text(center);
-
         @include tablet-responsive {
             padding: $size-increment-x4 0;
             flex: 0 0 auto;
         }
     }
 
-    &__link {
-        color: $primary-color-alternate;
-    }
+    &__link {color: $primary-color-alternate;}
 }
 
 /* ###  footer/contact   ### */
 
 .hero {
-    background: url("../assets/images/hero-bio.jpg") center;
+    background: url("../assets/images/hero-bio.jpg") center no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
 
     height: 32vh;
     
     @include custom-responsive("min", 450px) {height: 36vh;}
     @include custom-responsive("min", 550px) {height: 40vh;}
     @include custom-responsive("min", 650px) {height: 48vh;}
-
-    @include tablet-responsive {
-        height: 60vh;
-    }
-    
-    @include desktop-responsive {
-        height: 80vh;
-    }
+    @include tablet-responsive {height: 60vh;}
+    @include desktop-responsive {height: 80vh;}
 
     &__overlay {
         height: 100%;
@@ -129,9 +108,7 @@
         @include custom-responsive("min", 550px) {font-size: $size-increment-x5;}
         @include custom-responsive("min", 650px) {font-size: $size-increment-x6;}
 
-        @include tablet-responsive {
-            font-size: $size-increment-x8;
-        }
+        @include tablet-responsive {font-size: $size-increment-x8;}
     }
 }
 
@@ -142,19 +119,13 @@
     &__container,
     &__image {
         @include padding-component("mobile");
-
-        @include tablet-responsive {
-            @include padding-component("tablet");
-        }
+        @include tablet-responsive {@include padding-component("tablet");}
     }
 
     &__title,
     &__sub-title {
         @include padding-headline("mobile");
-
-        @include tablet-responsive {
-            @include padding-headline("tablet");
-        }
+        @include tablet-responsive {@include padding-headline("tablet");}
     }
 
     &__container {
@@ -170,12 +141,9 @@
     }
 
 
-    &__quotation {
-        font-weight: $font-weight-bold;
-    }
+    &__quotation {font-weight: $font-weight-bold;}
     
     &__bio {
-        
         @include tablet-responsive {
             display: flex;
             flex-wrap: wrap;
@@ -195,7 +163,6 @@
     }
     &__text--first {
         @include padding-component("mobile");
-
         @include tablet-responsive {
             margin: 0 $size-increment-x5 0 0;
             padding-bottom: 0;
@@ -213,7 +180,6 @@
         justify-content: flex-start;
 
         @include padding-component("mobile");
-
         @include tablet-responsive {
             @include padding-component("tablet");
         }
@@ -221,15 +187,12 @@
 
     &__title {
         @include padding-headline("mobile");
-
         @include tablet-responsive {
             @include padding-headline("tablet");
         }
     }
 
     &__items {
-        list-style: none;
-
         @include tablet-responsive {
             display: flex;
             flex-wrap: wrap;
@@ -240,22 +203,16 @@
 
     &__item {
         margin-bottom: $size-increment-x3;
-        &:last-child {
-            margin-bottom: 0;
-        }
+        &:last-child {margin-bottom: 0;}
 
-        @include tablet-responsive {
-            width: 30%;
-        }
+        @include tablet-responsive {width: 30%;}
     }
 
     &__image {
         filter: grayscale(1);
         transition: filter .2s ease;
 
-        &:hover, &:active {
-            filter: none;
-        }
+        &:hover, &:active {filter: none;}
     }
 }
 
@@ -270,7 +227,6 @@
         justify-content: flex-start;
 
         @include padding-component("mobile");
-
         @include tablet-responsive {
             @include padding-component("tablet");
         }
@@ -278,7 +234,6 @@
 
     &__title {
         @include flex-item-realestate(1, 0, 100%);
-        
         font-weight: $font-weight-demi;
 
         @include tablet-responsive {
@@ -287,15 +242,9 @@
             @include flex-item-realestate(1, 1, 30%);
         }
 
-        @include desktop-responsive {
-            @include flex-item-realestate(0, 1, 30%);
-        }
-
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
         @include padding-headline("mobile");
-
-        @include tablet-responsive {
-            @include padding-headline("tablet");
-        }
+        @include tablet-responsive {@include padding-headline("tablet");}
     }
 
     &__social {
@@ -308,36 +257,24 @@
             @include flex-item-realestate(1, 1, 30%);
         }
 
-        @include desktop-responsive {
-            @include flex-item-realestate(0, 1, 30%);
-        }
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
     }
 
     &__icon {
-        @include tablet-responsive {
-            width: 30px;
-        }
+        @include tablet-responsive {width: 30px;}
+
         &--facebook {
-            @include tablet-responsive {
-                width: 18px;
-            }
+            @include tablet-responsive {width: 18px;}
         }
         &--twitter {
-            @include tablet-responsive {
-                width: 35px;
-            }
+            @include tablet-responsive {width: 35px;}
         }
     }
 
     &__point {
         @include flex-item-realestate(1, 0, 100%);
-        
-        @include tablet-responsive {
-            @include flex-item-realestate(1, 0, 30%);
-        }
-        @include desktop-responsive {
-            @include flex-item-realestate(0, 1, 30%);
-        }
+        @include tablet-responsive {@include flex-item-realestate(1, 0, 30%);}
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
     }
 
     &__person {
@@ -351,26 +288,15 @@
     &__location {
         @include padding-component("mobile");
 
-        @include tablet-responsive {
-            @include padding-component("tablet");
-        }
-
+        @include tablet-responsive {@include padding-component("tablet");}
     }
 
-    &__name,
-    &__company {
-        font-weight: $font-weight-bold;
-        color: $primary-color-subsidiary;
-    }
 
-    &__title,
-    &__copyright {
-        color: $primary-color-subsidiary;
-    }
-    &__icon,
-    &__logo {
-        vertical-align: bottom;
-    }
+    &__title, &__name,
+    &__company, &__copyright {color: $primary-color-subsidiary;}
+
+    &__name, &__company {font-weight: $font-weight-bold;}
+    &__icon, &__logo {vertical-align: bottom;}
 
     &__back-to-home {
         display: block;
@@ -385,11 +311,9 @@
             order: -1;
             text-align: right;
         }
-        @include desktop-responsive {
-            @include flex-item-realestate(1, 0, 40%);
-        }
-
+        @include desktop-responsive {@include flex-item-realestate(1, 0, 40%);}
     }
+
     &__copyright {
         @include flex-item-realestate(1, 0, 100%);
         font-size: 12px;

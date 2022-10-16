@@ -13,18 +13,35 @@
 /* ##   colors   ## */
 /* ##   font   ## */
 /* ##   text styles   ## */
-/* ##   responsive breakpoint   ## */
 /* ##   site Container   ## */
+/* ##   responsive breakpoint   ## */
 /* ##   branding   ## */
 /* ##   buttons   ## */
 /* ## responsive breakpoints ## */
 /* ## utiilty mixins ## */
 /* ## Reset ## */
-* {
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote, cite, a,
+ul, li, figure, figcaption, footer, header,
+nav, section {
   box-sizing: border-box;
   margin: 0;
-  border: 0;
   padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
 }
 
 @font-face {
@@ -53,7 +70,7 @@ body {
 @media screen and (min-width: 768px) {
   body {
     font-size: 1rem;
-    line-height: 1.375rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -104,14 +121,14 @@ span {
 }
 
 .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .contact__container {
-  padding: 0 1rem;
   max-width: 1044px;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
   .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .contact__container {
@@ -200,9 +217,8 @@ span {
 
 /* ###  footer/contact   ### */
 .hero {
-  background: url("../assets/images/hero-bio.jpg") center;
+  background: url("../assets/images/hero-bio.jpg") center no-repeat;
   background-size: cover;
-  background-repeat: no-repeat;
   height: 32vh;
 }
 @media screen and (min-width: 450px) {
@@ -337,9 +353,6 @@ span {
     padding-bottom: 2.25rem;
   }
 }
-.gallery__items {
-  list-style: none;
-}
 @media screen and (min-width: 768px) {
   .gallery__items {
     display: flex;
@@ -466,12 +479,11 @@ span {
     padding-bottom: 2.25rem;
   }
 }
-.contact__name, .contact__company {
-  font-weight: 700;
+.contact__title, .contact__name, .contact__company, .contact__copyright {
   color: #FFFFFF;
 }
-.contact__title, .contact__copyright {
-  color: #FFFFFF;
+.contact__name, .contact__company {
+  font-weight: 700;
 }
 .contact__icon, .contact__logo {
   vertical-align: bottom;

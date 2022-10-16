@@ -31,17 +31,9 @@ $font-weight-demi: 600;
 $font-weight-bold: 700;
 
 /* ##   text styles   ## */
+
 $page-section-header: $size-increment-x4;
 $page-section-line-height: $size-increment-x5;
-
-$sub-header: 0.875rem;
-$sub-header-line-height: 1.375rem;
-
-$body-footer-copy: 0.813rem;
-$body-footer-line-height: 1.125rem;
-
-$labels: 0.625rem;
-$labels-line-height: 1.25rem;
 
 $page-header-large: 3.75rem;
 $page-line-height-large: 4.25rem;
@@ -49,25 +41,14 @@ $page-line-height-large: 4.25rem;
 $section-header-large: $size-increment-x5-1;
 $section-line-height: 2.75rem;
 
-$sub-header-large: $size-increment-x4;
-$sub-line-height-large: $size-increment-x5;
+/* ##   site Container   ## */ 
 
-$body-footer-copy-large: $sub-header;
-$body-copy-line-height-large: $sub-header-line-height;
-$footer-copy-line-height-large: $labels-line-height;
-
-$labels-large: 0.75rem;
-$labels-line-height: $labels-line-height;
-
+$site-container: 1044px;
 
 /* ##   responsive breakpoint   ## */ 
 
 $desktop-resolution: 1280px;
 $tablet-resolution: 768px;
-
-/* ##   site Container   ## */ 
-
-$site-container: 1044px;
 
 /* ##   branding   ## */ 
 

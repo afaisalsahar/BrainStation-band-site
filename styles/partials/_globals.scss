@@ -13,7 +13,7 @@ body {
 
     @include tablet-responsive {
         font-size: $size-increment-x3;
-        line-height: $body-copy-line-height-large;
+        line-height: $size-increment-x4;
     }
 }
 a {
@@ -48,28 +48,21 @@ span {
     display: block;
     color: $primary-color-subsidiary;
 }
+
 .topbar__logo,
-.contact__logo {
-    max-width: $logo-max-width;
-}
+.contact__logo {max-width: $logo-max-width;}
 
 .container {
-
-    padding: 0 $size-increment-x3;
-
-    @include tablet-responsive {
-        padding: 0 $size-increment-x5-1;
-    }
-
-    @include desktop-responsive {
-        padding: 0 0;
-    }
-
     max-width: 1044px;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 0 $size-increment-x3;
+    margin: 0 auto;
+
+    @include tablet-responsive {padding: 0 $size-increment-x5-1;}
+    @include desktop-responsive {padding: 0 0;}
+
 }
