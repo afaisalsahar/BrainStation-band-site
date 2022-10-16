@@ -173,7 +173,7 @@ span {
   }
 }
 .topbar__item, .topbar__link {
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 .topbar__item {
   flex: 0 0 50%;
@@ -333,6 +333,13 @@ span {
   .gallery__item {
     width: 30%;
   }
+}
+.gallery__image {
+  filter: grayscale(1);
+  transition: filter 0.2s ease;
+}
+.gallery__image:hover, .gallery__image:active {
+  filter: none;
 }
 
 /* ###  footer/contact   ### */

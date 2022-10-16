@@ -59,7 +59,7 @@
 
     &__item,
     &__link {
-        transition: all .2s;
+        transition: all .2s ease;
     }
 
     &__item {
@@ -239,6 +239,15 @@
 
         @include tablet-responsive {
             width: 30%;
+        }
+    }
+
+    &__image {
+        filter: grayscale(1);
+        transition: filter .2s ease;
+
+        &:hover, &:active {
+            filter: none;
         }
     }
 }
