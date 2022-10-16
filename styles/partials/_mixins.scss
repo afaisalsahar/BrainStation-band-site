@@ -14,6 +14,19 @@
     }
 }
 
+@mixin custom-responsive($type, $resolution) {
+    @if $type == "min" {
+        @media screen and (min-width: $resolution) {
+            @content;
+        }
+    }
+    @else if $type == "max" {
+        @media screen and (max-width: $resolution) {
+            @content;
+        }
+    }
+}
+
 /* ## utiilty mixins ## */
 
 @mixin align-text($direction) {

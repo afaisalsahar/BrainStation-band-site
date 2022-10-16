@@ -97,8 +97,12 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    height: 30vh;
+    height: 32vh;
     
+    @include custom-responsive("min", 450px) {height: 36vh;}
+    @include custom-responsive("min", 550px) {height: 40vh;}
+    @include custom-responsive("min", 650px) {height: 48vh;}
+
     @include tablet-responsive {
         height: 60vh;
     }
@@ -121,6 +125,9 @@
 
     &__title {
         color: $primary-color-subsidiary;
+
+        @include custom-responsive("min", 550px) {font-size: $size-increment-x5;}
+        @include custom-responsive("min", 650px) {font-size: $size-increment-x6;}
 
         @include tablet-responsive {
             font-size: $size-increment-x8;

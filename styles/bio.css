@@ -203,7 +203,22 @@ span {
   background: url("../assets/images/hero-bio.jpg") center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 30vh;
+  height: 32vh;
+}
+@media screen and (min-width: 450px) {
+  .hero {
+    height: 36vh;
+  }
+}
+@media screen and (min-width: 550px) {
+  .hero {
+    height: 40vh;
+  }
+}
+@media screen and (min-width: 650px) {
+  .hero {
+    height: 48vh;
+  }
 }
 @media screen and (min-width: 768px) {
   .hero {
@@ -225,6 +240,16 @@ span {
 }
 .hero__title {
   color: #FFFFFF;
+}
+@media screen and (min-width: 550px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 650px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
 }
 @media screen and (min-width: 768px) {
   .hero__title {
