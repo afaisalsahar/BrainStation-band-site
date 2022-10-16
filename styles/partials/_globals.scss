@@ -1,5 +1,6 @@
 @use './variables' as *;
 @use './fontface' as *;
+@use './mixins' as *;
 
 /* ## Default Styles ## */
 
@@ -9,6 +10,11 @@ body {
     line-height: $size-increment-x4;
     font-weight: $font-weight-regular;
     color: $primary-color-main;
+
+    @include tablet-responsive {
+        font-size: $size-increment-x3;
+        line-height: $body-copy-line-height-large;
+    }
 }
 a {
     text-decoration: none;
@@ -16,21 +22,31 @@ a {
     color: $primary-color-subsidiary;
 }
 h1, h2 {
-    font-size: $size-increment-x5;
-    line-height: $size-increment-x5;
+    font-size: $page-section-header;
+    line-height: $page-section-line-height;
     font-weight: $font-weight-demi;
 }
+h1 {
+    @include tablet-responsive {
+        font-size: $page-header-large;
+        line-height: $page-line-height-large;
+    }
+}
+h2 {
+    @include tablet-responsive {
+        font-size: $section-header-large;
+        line-height: $section-line-height;
+    }
+}
 h3, h4 {
-    font-size: 1.2rem;
-    line-height: $size-increment-x4;
     font-weight: $font-weight-demi;
+    font-style: normal;
 }
 img {width: 100%;}
 span {
     font-style: normal;
     display: block;
     color: $primary-color-subsidiary;
-    line-height: $size-increment-x4;
 }
 .topbar__logo,
 .contact__logo {
@@ -38,6 +54,17 @@ span {
 }
 
 .container {
+
+    padding: 0 $size-increment-x3;
+
+    @include tablet-responsive {
+        padding: 0 $size-increment-x5-1;
+    }
+
+    @include desktop-responsive {
+        padding: 0 0;
+    }
+
     max-width: 1044px;
     margin: 0 auto;
     display: flex;

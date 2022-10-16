@@ -12,6 +12,7 @@
 /* 80px */
 /* ##   colors   ## */
 /* ##   font   ## */
+/* ##   text styles   ## */
 /* ##   responsive breakpoint   ## */
 /* ##   site Container   ## */
 /* ##   branding   ## */
@@ -49,6 +50,12 @@ body {
   font-weight: 400;
   color: #323232;
 }
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
+}
 
 a {
   text-decoration: none;
@@ -57,15 +64,28 @@ a {
 }
 
 h1, h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
 }
 
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
 h3, h4 {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
   font-weight: 600;
+  font-style: normal;
 }
 
 img {
@@ -76,7 +96,6 @@ span {
   font-style: normal;
   display: block;
   color: #FFFFFF;
-  line-height: 1.5rem;
 }
 
 .topbar__logo,
@@ -85,6 +104,7 @@ span {
 }
 
 .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .contact__container {
+  padding: 0 1rem;
   max-width: 1044px;
   margin: 0 auto;
   display: flex;
@@ -93,10 +113,23 @@ span {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .contact__container {
+    padding: 0 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .contact__container {
+    padding: 0 0;
+  }
+}
 
 /* ###  header/navigation   ### */
 .topbar {
   background-color: #323232;
+}
+.topbar__container {
+  padding: 0 0;
 }
 @media screen and (min-width: 768px) {
   .topbar__container {
@@ -106,9 +139,13 @@ span {
     gap: 3.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .topbar__container {
+    padding: 0;
+  }
+}
 .topbar__back-to-home {
-  padding-top: 1rem;
-  margin-bottom: 0.5rem;
+  padding: 1rem 0;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
@@ -126,6 +163,7 @@ span {
   }
 }
 .topbar__items {
+  padding: 0 0;
   list-style: none;
   align-items: flex-start;
 }
@@ -182,14 +220,8 @@ span {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .hero__container {
-  padding: 0 1rem;
   height: 100%;
   justify-content: flex-start;
-}
-@media screen and (min-width: 768px) {
-  .hero__container {
-    padding: 0 2.25rem;
-  }
 }
 .hero__title {
   color: #FFFFFF;
@@ -201,30 +233,32 @@ span {
 }
 
 /* ###  about/bio   ### */
-.about {
-  padding: 1.5rem 1rem 1rem;
+.about__container, .about__image {
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .about {
-    padding: 3.5rem 0 1rem;
+  .about__container, .about__image {
+    padding-bottom: 2.25rem;
+  }
+}
+.about__title, .about__sub-title {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .about__title, .about__sub-title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
   }
 }
 .about__container {
   justify-content: flex-start;
 }
 @media screen and (min-width: 768px) {
-  .about__container {
-    padding: 0 2.25rem;
-  }
-}
-@media screen and (min-width: 768px) {
   .about__content {
     width: 90%;
-    margin: 2rem auto;
+    margin: 0 auto;
   }
-}
-.about__image {
-  margin: 1rem 0;
 }
 .about__quotation {
   font-weight: 700;
@@ -234,9 +268,6 @@ span {
     display: flex;
     flex-wrap: wrap;
   }
-}
-.about__sub-title {
-  margin: 1.5rem 0 1rem;
 }
 @media screen and (min-width: 768px) {
   .about__sub-title {
@@ -249,29 +280,37 @@ span {
   }
 }
 .about__text--first {
-  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .about__text--first {
     margin: 0 2rem 0 0;
+    padding-bottom: 0;
   }
 }
 
 /* ###  gallery   ### */
 .gallery {
   background-color: #FAFAFA;
-  padding: 1.5rem 1rem 1rem;
-}
-@media screen and (min-width: 768px) {
-  .gallery {
-    padding: 3.5rem 0 2rem;
-  }
 }
 .gallery__container {
   justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery__container {
+    padding-bottom: 2.25rem;
+  }
 }
 .gallery__title {
-  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
 }
 .gallery__items {
   list-style: none;
@@ -280,12 +319,15 @@ span {
   .gallery__items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 1rem;
   }
 }
 .gallery__item {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.gallery__item:last-child {
+  margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
   .gallery__item {
@@ -296,25 +338,21 @@ span {
 /* ###  footer/contact   ### */
 .contact {
   background-color: #323232;
-  padding: 2rem 0 1.5rem;
-}
-@media screen and (min-width: 768px) {
-  .contact {
-    padding: 3.5rem 0;
-  }
 }
 .contact__container {
-  padding: 0 1rem;
   justify-content: flex-start;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .contact__container {
-    padding: 0 2.25rem;
+    padding-bottom: 2.25rem;
   }
 }
 .contact__title {
   flex: 1 0 100%;
   font-weight: 600;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .contact__title {
@@ -326,6 +364,12 @@ span {
 @media screen and (min-width: 1280px) {
   .contact__title {
     flex: 0 1 30%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
   }
 }
 .contact__social {
@@ -359,21 +403,12 @@ span {
     width: 35px;
   }
 }
-.contact__title, .contact__social, .contact__point {
-  margin-bottom: 1.5rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__title, .contact__social, .contact__point {
-    margin-bottom: 0;
-  }
-}
 .contact__point {
   flex: 1 0 100%;
 }
 @media screen and (min-width: 768px) {
   .contact__point {
     flex: 1 0 30%;
-    margin: 3rem 0;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -381,23 +416,44 @@ span {
     flex: 0 1 30%;
   }
 }
-.contact__person, .contact__location {
-  margin-bottom: 1rem;
+.contact__person {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__person {
+    padding-top: 0;
+    padding-bottom: 2.25rem;
+  }
+}
+.contact__location {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__location {
+    padding-bottom: 2.25rem;
+  }
 }
 .contact__name, .contact__company {
   font-weight: 700;
+  color: #FFFFFF;
 }
 .contact__title, .contact__copyright {
   color: #FFFFFF;
 }
+.contact__icon, .contact__logo {
+  vertical-align: bottom;
+}
 .contact__back-to-home {
   display: block;
-  padding: 2rem 0 0.5rem;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .contact__back-to-home {
     flex: 1 1 30%;
-    padding: 0;
+    padding-bottom: 0;
+    margin-top: 0;
     order: -1;
     text-align: right;
   }
@@ -410,4 +466,10 @@ span {
 .contact__copyright {
   flex: 1 0 100%;
   font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .contact__copyright {
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

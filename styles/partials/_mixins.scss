@@ -19,6 +19,34 @@
 @mixin align-text($direction) {
     text-align: $direction;;
 }
+
 @mixin flex-item-realestate($grow, $shrink, $base) {
     flex: $grow $shrink $base;
+}
+
+@mixin padding-headline($screentype) {
+    @if $screentype == "mobile" {
+        padding-top: $size-increment-x4;
+        padding-bottom: $size-increment-x3;
+    }
+    @else if $screentype == "tablet" or $screentype == "desktop" {
+        padding-top: $size-increment-x7;
+        padding-bottom: $size-increment-x5-1;
+    }
+    @else {
+        padding-top: auto;
+        padding-bottom: auto;
+    }
+}
+
+@mixin padding-component($screentype) {
+    @if $screentype == "mobile" {
+        padding-bottom: $size-increment-x3;
+    }
+    @else if $screentype == "tablet" or $screentype == "desktop" {
+        padding-bottom: $size-increment-x5-1;
+    }
+    @else {
+        padding-bottom: auto;
+    }
 }

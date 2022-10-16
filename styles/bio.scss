@@ -11,6 +11,7 @@
 
     &__container {
         @extend .container;
+        padding: 0 0;
 
         @include tablet-responsive {
             padding: 0 $size-increment-x5-1;
@@ -18,11 +19,13 @@
             flex-wrap: nowrap;
             gap: $size-increment-x8;
         }
+        @include desktop-responsive {
+            padding: 0;
+        }
     }
 
     &__back-to-home {
-        padding-top: $size-increment-x3;
-        margin-bottom: $size-increment-x2;
+        padding: $size-increment-x3 0;
 
         @include align-text(center);
 
@@ -44,7 +47,8 @@
 
     &__items {
         @extend .container;
-        
+        padding: 0 0;
+
         list-style: none;
         align-items: flex-start;
 
@@ -110,14 +114,9 @@
 
     &__container {
         @extend .container;
-        padding: 0 $size-increment-x3;
 
         height: 100%;
         justify-content: flex-start;
-
-        @include tablet-responsive {
-            padding: 0 $size-increment-x5-1;
-        }
     }
 
     &__title {
@@ -132,39 +131,44 @@
 /* ###  about/bio   ### */
 
 .about {
-    padding: $size-increment-x4 $size-increment-x3 $size-increment-x3;
 
-    @include tablet-responsive {
-        padding: $size-increment-x8 0 $size-increment-x3;
+    &__container,
+    &__image {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__title,
+    &__sub-title {
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
     }
 
     &__container {
         @extend .container;
         justify-content: flex-start;
-
-        @include tablet-responsive {
-            padding: 0 $size-increment-x5-1;
-        }
     }
 
     &__content {
-
         @include tablet-responsive {
             width: 90%;
-            margin: $size-increment-x5 auto;
+            margin: 0 auto;
         }
     }
-    
-    &__image {
-        margin: $size-increment-x3 0;
-    }
+
 
     &__quotation {
         font-weight: $font-weight-bold;
     }
     
     &__bio {
-
+        
         @include tablet-responsive {
             display: flex;
             flex-wrap: wrap;
@@ -172,22 +176,22 @@
     }
 
     &__sub-title {
-        margin: $size-increment-x4 0 $size-increment-x3;
-
         @include tablet-responsive {
             @include flex-item-realestate(1, 0, 100%);
         }
     }
+
     &__text {
         @include tablet-responsive {
             @include flex-item-realestate(1, 0, 40%);
         }
     }
     &__text--first {
-        margin: 0 0 $size-increment-x3 0;
+        @include padding-component("mobile");
 
         @include tablet-responsive {
             margin: 0 $size-increment-x5 0 0;
+            padding-bottom: 0;
         }
     }
 }
@@ -196,19 +200,24 @@
 
 .gallery {
     background-color: $secondary-color-subsidiary;
-
-    padding: $size-increment-x4 $size-increment-x3 $size-increment-x3;
-
-    @include tablet-responsive {
-        padding: $size-increment-x8 0 $size-increment-x5;
-    }
-
+    
     &__container {
         @extend .container;
         justify-content: flex-start;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
     }
+
     &__title {
-        margin-bottom: $size-increment-x3;    
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
     }
 
     &__items {
@@ -217,37 +226,37 @@
         @include tablet-responsive {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: $size-increment-x3;
         }
     }
+
     &__item {
-        margin-bottom: $size-increment-x2;
+        margin-bottom: $size-increment-x3;
+        &:last-child {
+            margin-bottom: 0;
+        }
+
         @include tablet-responsive {
             width: 30%;
         }
     }
-
 }
 
 /* ###  footer/contact   ### */
 
 .contact {
     background-color: $primary-color-main;
-    padding: $size-increment-x5 0 $size-increment-x4;
-
-    @include tablet-responsive {
-        padding: $size-increment-x8 0;
-    }
 
     &__container {
         @extend .container;
 
-        padding: 0 $size-increment-x3;
         justify-content: flex-start;
 
+        @include padding-component("mobile");
+
         @include tablet-responsive {
-            padding: 0 $size-increment-x5-1;
+            @include padding-component("tablet");
         }
     }
 
@@ -264,6 +273,12 @@
 
         @include desktop-responsive {
             @include flex-item-realestate(0, 1, 30%);
+        }
+
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            @include padding-headline("tablet");
         }
     }
 
@@ -298,50 +313,59 @@
         }
     }
 
-    &__title,
-    &__social,
-    &__point {
-        margin-bottom: $size-increment-x4;
-        @include tablet-responsive {
-            margin-bottom: 0;
-        }
-    }
-
     &__point {
         @include flex-item-realestate(1, 0, 100%);
         
         @include tablet-responsive {
             @include flex-item-realestate(1, 0, 30%);
-            margin: $size-increment-x7 0;
         }
         @include desktop-responsive {
             @include flex-item-realestate(0, 1, 30%);
         }
     }
 
-    &__person,
+    &__person {
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            padding-top: 0;
+            @include padding-component("tablet");
+        }
+    }
     &__location {
-        margin-bottom: $size-increment-x3;
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+
     }
 
     &__name,
     &__company {
         font-weight: $font-weight-bold;
+        color: $primary-color-subsidiary;
     }
 
     &__title,
     &__copyright {
         color: $primary-color-subsidiary;
     }
+    &__icon,
+    &__logo {
+        vertical-align: bottom;
+    }
 
     &__back-to-home {
         display: block;
-        padding: $size-increment-x5 0 $size-increment-x2;
+        margin-top: $size-increment-x7;
+
+        @include padding-component("mobile");
 
         @include tablet-responsive {
             @include flex-item-realestate(1, 1, 30%);
-
-            padding: 0;
+            padding-bottom: 0;
+            margin-top: 0;
             order: -1;
             text-align: right;
         }
@@ -353,5 +377,10 @@
     &__copyright {
         @include flex-item-realestate(1, 0, 100%);
         font-size: 12px;
+        
+        @include tablet-responsive {
+            font-size: $size-increment-x3;
+            margin-top: $size-increment-x7;
+        }
     }
 }
