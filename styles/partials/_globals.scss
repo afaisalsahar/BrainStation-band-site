@@ -43,22 +43,35 @@ h3, h4 {
     font-style: normal;
 }
 img {width: 100%;}
-span {
+span, label {
     font-style: normal;
     display: block;
+}
+span {
     color: $primary-color-subsidiary;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: $secondary-color-alternate;
 }
 
 .topbar__logo,
 .contact__logo {max-width: $logo-max-width;}
 
-.container {
-    max-width: 1044px;
+.flex-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    @extend .flex-container;
+    
+    max-width: 1044px;
     padding: 0 $size-increment-x3;
     margin: 0 auto;
 

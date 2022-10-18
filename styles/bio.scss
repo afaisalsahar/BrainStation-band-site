@@ -174,7 +174,7 @@
 
 .gallery {
     background-color: $secondary-color-subsidiary;
-    
+
     &__container {
         @extend .container;
         justify-content: flex-start;
@@ -213,6 +213,170 @@
         transition: filter .2s ease;
 
         &:hover, &:active {filter: none;}
+    }
+}
+
+/* ###  comment   ### */
+.conversation {
+    &__container {
+        @extend .container;
+        justify-content: flex-start;
+    }
+
+    @include padding-component("mobile");
+    @include tablet-responsive {
+        @include padding-component("tablet");
+    }
+
+    &__title {
+        @include padding-headline("mobile");
+        @include flex-item-realestate(1, 0, 100%);
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }    
+    }
+
+    &__comment {
+        @include flex-item-realestate(1, 0, 100%);
+        @extend .flex-container;
+        justify-content: flex-start;
+
+        @include padding-component("mobile");
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+
+        @include desktop-responsive {
+            max-width: 50%;
+            margin: auto;
+        }
+
+    }
+
+    &__thumbnail {
+        align-self: flex-start;
+
+        &--active {
+            margin-top: $size-increment-x4;
+
+            @include tablet-responsive {
+                margin-top: 1.85rem;
+            }
+        }
+    }
+
+    &__avatar {
+        @extend .flex-container;
+        justify-content: flex-start;
+
+        width: $size-increment-x7;
+        height: $size-increment-x7;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: $size-increment-x3;
+        background-color: $secondary-color-alternate;
+    }
+
+    &__image {
+        width: auto;
+        height: 100%;
+    }
+
+    &__form {
+        @include flex-item-realestate(1, 1, auto);
+    }
+
+    &__name, &__text {
+        @include padding-component("mobile");
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__name, &__text,
+    &__label, &__input, &__textarea, &__action {
+        width: 100%;
+    }
+
+    &__input, &__textarea, &__action {
+        border-radius: $size-increment-x1;
+    }
+
+    &__label {
+        margin-bottom: $size-increment-x1;
+        color: $primary-color-alternate;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    
+    &__input, &__textarea {
+        border: 1px solid $secondary-color-alternate;
+        min-height: $size-increment-x5-1;
+        padding: $size-increment-x2-1;
+        background-color: #f1f1f1;
+
+        @include tablet-responsive {
+            min-height: $size-increment-x7;
+            padding: $size-increment-x3;
+        }
+    }
+    
+    &__input:active, &__textarea:focus {
+        border-color: $primary-color-main;
+    }
+    
+    &__input::placeholder, &__textarea::placeholder {
+        font-family: $font-face;
+        color: $primary-color-main;
+        font-weight: 600;
+    }
+    
+    &__textarea {
+        resize: none;
+        min-height: 120px;
+    }
+
+    &__action {
+        min-height: $size-increment-x6;
+        background-color: $primary-color-main;
+        color: $primary-color-subsidiary;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+
+        @include tablet-responsive {
+            min-width: 150px;
+            width: 25%;
+            padding: 0 $size-increment-x5;
+            float: right
+        }
+
+    }
+
+    &__items {
+        @include desktop-responsive {
+            max-width: 50.1%;
+            margin: auto;
+        }
+    }
+
+    &__item {
+        @extend .flex-container;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding: 16px 0;
+    }
+
+    &__username, &__timestamp {
+        @include padding-component("mobile");
+    }
+    &__timestamp {
+        color: $primary-color-alternate;
+    }
+
+    &__content {
+        @extend .flex-container;
+        justify-content: space-between;
     }
 }
 
