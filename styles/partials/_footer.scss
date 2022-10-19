@@ -1,0 +1,112 @@
+@use './variables' as *;
+@use './reset' as *;
+@use './globals' as *;
+@use './fontface' as *;
+@use './mixins' as *;
+
+.contact {
+    background-color: $primary-color-main;
+
+    &__container {
+        @extend .container;
+
+        justify-content: flex-start;
+
+        @include padding-component("mobile");
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+    }
+
+    &__title {
+        @include flex-item-realestate(1, 0, 100%);
+        font-weight: $font-weight-demi;
+
+        @include tablet-responsive {
+            font-size: $size-increment-x6;
+            order: -1;
+            @include flex-item-realestate(1, 1, 30%);
+        }
+
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
+        @include padding-headline("mobile");
+        @include tablet-responsive {@include padding-headline("tablet");}
+    }
+
+    &__social {
+        @include flex-item-realestate(1, 0, 100%);
+        display: flex;
+        gap: $size-increment-x5;
+
+        @include tablet-responsive {
+            order: -1;
+            @include flex-item-realestate(1, 1, 30%);
+        }
+
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
+    }
+
+    &__icon {
+        @include tablet-responsive {width: 30px;}
+
+        &--facebook {
+            @include tablet-responsive {width: 18px;}
+        }
+        &--twitter {
+            @include tablet-responsive {width: 35px;}
+        }
+    }
+
+    &__point {
+        @include flex-item-realestate(1, 0, 100%);
+        @include tablet-responsive {@include flex-item-realestate(1, 0, 30%);}
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
+    }
+
+    &__person {
+        @include padding-headline("mobile");
+
+        @include tablet-responsive {
+            padding-top: 0;
+            @include padding-component("tablet");
+        }
+    }
+    &__location {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {@include padding-component("tablet");}
+    }
+
+
+    &__title, &__name,
+    &__company, &__copyright {color: $primary-color-subsidiary;}
+
+    &__name, &__company {font-weight: $font-weight-bold;}
+    &__icon, &__logo {vertical-align: bottom;}
+
+    &__back-to-home {
+        display: block;
+        margin-top: $size-increment-x7;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            @include flex-item-realestate(1, 1, 30%);
+            padding-bottom: 0;
+            margin-top: 0;
+            order: -1;
+            text-align: right;
+        }
+        @include desktop-responsive {@include flex-item-realestate(1, 0, 40%);}
+    }
+
+    &__copyright {
+        @include flex-item-realestate(1, 0, 100%);
+        font-size: 12px;
+        
+        @include tablet-responsive {
+            font-size: $size-increment-x3;
+            margin-top: $size-increment-x7;
+        }
+    }
+}

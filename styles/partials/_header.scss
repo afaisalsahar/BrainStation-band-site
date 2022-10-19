@@ -1,0 +1,77 @@
+@use './variables' as *;
+@use './reset' as *;
+@use './globals' as *;
+@use './fontface' as *;
+@use './mixins' as *;
+
+/* ###  header/navigation   ### */
+
+.topbar {
+    background-color: $primary-color-main;
+
+    &__container {
+        @extend .container;
+        padding: 0 0;
+
+        @include tablet-responsive {
+            padding: 0 $size-increment-x5-1;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            gap: $size-increment-x8;
+        }
+        @include desktop-responsive {padding: 0;}
+    }
+
+    &__back-to-home {
+        padding: $size-increment-x3 0;
+
+        @include align-text(center);
+        @include tablet-responsive {
+            padding: 0;
+            margin: 0;
+        }    
+    }
+
+    &__back-to-home, &__navigation,
+    &__items {
+        flex: 0 0 100%;
+
+        @include tablet-responsive {flex: 0 0 auto;}
+    }
+
+    &__items {
+        @extend .container;
+        padding: 0 0;
+
+        list-style: none;
+        align-items: flex-start;
+
+        @include tablet-responsive {gap: $size-increment-x5;}
+    }
+
+    &__item, &__link {transition: all .2s ease;}
+
+    &__item {
+        flex: 0 0 50%;
+        padding: 0 $size-increment-x3 $size-increment-x2;
+        font-weight: $font-weight-demi;
+
+        &:hover,
+        &--active {
+            border-bottom: $size-increment-x1 solid $primary-color-subsidiary;
+            cursor: pointer;
+        }
+        &:hover > a,
+        &--active > a {
+            color: $primary-color-subsidiary;
+        }
+
+        @include align-text(center);
+        @include tablet-responsive {
+            padding: $size-increment-x4 0;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__link {color: $primary-color-alternate;}
+}
