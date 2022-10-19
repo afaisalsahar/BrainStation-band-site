@@ -18,8 +18,7 @@
 /* ##   responsive breakpoint   ## */
 /* ##   branding   ## */
 /* ##   buttons   ## */
-/* ## responsive breakpoints ## */
-/* ## utiilty mixins ## */
+/* ##   imagery   ## */
 /* ## Reset ## */
 html, body, div, span,
 h1, h2, h3, h4, h5, h6, p, blockquote, cite, a,
@@ -60,6 +59,8 @@ q:before, q:after {
   font-family: "AvenirNext";
   font-weight: 700;
 }
+/* ## responsive breakpoints ## */
+/* ## utiilty mixins ## */
 /* ## Default Styles ## */
 body {
   font-family: "AvenirNext";
@@ -130,7 +131,7 @@ hr {
   max-width: 120px;
 }
 
-.flex-container, .conversation__comment, .conversation__avatar, .conversation__item, .conversation__content, .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .conversation__container, .contact__container {
+.flex-container, .conversation__comment, .conversation__avatar, .conversation__item, .conversation__content, .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -138,18 +139,18 @@ hr {
   align-items: center;
 }
 
-.container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .conversation__container, .contact__container {
+.container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   max-width: 1044px;
   padding: 0 1rem;
   margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
-  .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .conversation__container, .contact__container {
+  .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
     padding: 0 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .container, .topbar__container, .topbar__items, .hero__container, .about__container, .gallery__container, .conversation__container, .contact__container {
+  .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
     padding: 0 0;
   }
 }
@@ -228,36 +229,145 @@ hr {
   color: #AFAFAF;
 }
 
-/* ###  footer/contact   ### */
-.hero {
-  background: url("../assets/images/hero-bio.jpg") center no-repeat;
-  background-size: cover;
-  height: 32vh;
+.contact {
+  background-color: #323232;
 }
-@media screen and (min-width: 450px) {
-  .hero {
-    height: 36vh;
-  }
-}
-@media screen and (min-width: 550px) {
-  .hero {
-    height: 40vh;
-  }
-}
-@media screen and (min-width: 650px) {
-  .hero {
-    height: 48vh;
-  }
+.contact__container {
+  justify-content: flex-start;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .hero {
-    height: 60vh;
+  .contact__container {
+    padding-bottom: 2.25rem;
+  }
+}
+.contact__title {
+  flex: 1 0 100%;
+  font-weight: 600;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__title {
+    font-size: 2.5rem;
+    order: -1;
+    flex: 1 1 30%;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero {
-    height: 80vh;
+  .contact__title {
+    flex: 0 1 30%;
   }
+}
+@media screen and (min-width: 768px) {
+  .contact__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+.contact__social {
+  flex: 1 0 100%;
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__social {
+    order: -1;
+    flex: 1 1 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__social {
+    flex: 0 1 30%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon {
+    width: 30px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon--facebook {
+    width: 18px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__icon--twitter {
+    width: 35px;
+  }
+}
+.contact__point {
+  flex: 1 0 100%;
+}
+@media screen and (min-width: 768px) {
+  .contact__point {
+    flex: 1 0 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__point {
+    flex: 0 1 30%;
+  }
+}
+.contact__person {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__person {
+    padding-top: 0;
+    padding-bottom: 2.25rem;
+  }
+}
+.contact__location {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__location {
+    padding-bottom: 2.25rem;
+  }
+}
+.contact__title, .contact__name, .contact__company, .contact__copyright {
+  color: #FFFFFF;
+}
+.contact__name, .contact__company {
+  font-weight: 700;
+}
+.contact__icon, .contact__logo {
+  vertical-align: bottom;
+}
+.contact__back-to-home {
+  display: block;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .contact__back-to-home {
+    flex: 1 1 30%;
+    padding-bottom: 0;
+    margin-top: 0;
+    order: -1;
+    text-align: right;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__back-to-home {
+    flex: 1 0 40%;
+  }
+}
+.contact__copyright {
+  flex: 1 0 100%;
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .contact__copyright {
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+}
+
+.hero {
+  height: 32vh;
 }
 .hero__overlay {
   height: 100%;
@@ -283,6 +393,36 @@ hr {
 @media screen and (min-width: 768px) {
   .hero__title {
     font-size: 3.5rem;
+  }
+}
+
+.hero {
+  background: url("../assets/images/hero-shows.jpg") center no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 450px) {
+  .hero {
+    height: 36vh;
+  }
+}
+@media screen and (min-width: 550px) {
+  .hero {
+    height: 40vh;
+  }
+}
+@media screen and (min-width: 650px) {
+  .hero {
+    height: 48vh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 80vh;
   }
 }
 
@@ -550,140 +690,4 @@ hr {
   justify-content: space-between;
 }
 
-/* ###  footer/contact   ### */
-.contact {
-  background-color: #323232;
-}
-.contact__container {
-  justify-content: flex-start;
-  padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__container {
-    padding-bottom: 2.25rem;
-  }
-}
-.contact__title {
-  flex: 1 0 100%;
-  font-weight: 600;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__title {
-    font-size: 2.5rem;
-    order: -1;
-    flex: 1 1 30%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .contact__title {
-    flex: 0 1 30%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .contact__title {
-    padding-top: 3rem;
-    padding-bottom: 2.25rem;
-  }
-}
-.contact__social {
-  flex: 1 0 100%;
-  display: flex;
-  gap: 2rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__social {
-    order: -1;
-    flex: 1 1 30%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .contact__social {
-    flex: 0 1 30%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .contact__icon {
-    width: 30px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .contact__icon--facebook {
-    width: 18px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .contact__icon--twitter {
-    width: 35px;
-  }
-}
-.contact__point {
-  flex: 1 0 100%;
-}
-@media screen and (min-width: 768px) {
-  .contact__point {
-    flex: 1 0 30%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .contact__point {
-    flex: 0 1 30%;
-  }
-}
-.contact__person {
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__person {
-    padding-top: 0;
-    padding-bottom: 2.25rem;
-  }
-}
-.contact__location {
-  padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__location {
-    padding-bottom: 2.25rem;
-  }
-}
-.contact__title, .contact__name, .contact__company, .contact__copyright {
-  color: #FFFFFF;
-}
-.contact__name, .contact__company {
-  font-weight: 700;
-}
-.contact__icon, .contact__logo {
-  vertical-align: bottom;
-}
-.contact__back-to-home {
-  display: block;
-  margin-top: 3rem;
-  padding-bottom: 1rem;
-}
-@media screen and (min-width: 768px) {
-  .contact__back-to-home {
-    flex: 1 1 30%;
-    padding-bottom: 0;
-    margin-top: 0;
-    order: -1;
-    text-align: right;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .contact__back-to-home {
-    flex: 1 0 40%;
-  }
-}
-.contact__copyright {
-  flex: 1 0 100%;
-  font-size: 12px;
-}
-@media screen and (min-width: 768px) {
-  .contact__copyright {
-    font-size: 1rem;
-    margin-top: 3rem;
-  }
-}/*# sourceMappingURL=bio.css.map */
+/* ###  footer/contact   ### *//*# sourceMappingURL=bio.css.map */

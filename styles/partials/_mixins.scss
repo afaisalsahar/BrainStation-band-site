@@ -63,3 +63,8 @@
         padding-bottom: auto;
     }
 }
+
+@mixin set-background-image($filename) {
+    background: url('#{$image-path}#{$filename}') center no-repeat;
+    background-size: cover;
+}

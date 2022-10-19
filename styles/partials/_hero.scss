@@ -1,0 +1,30 @@
+@use './variables' as *;
+@use './reset' as *;
+@use './globals' as *;
+@use './fontface' as *;
+@use './mixins' as *;
+
+.hero {
+    height: 32vh;
+    
+    &__overlay {
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+    }
+
+    &__container {
+        @extend .container;
+
+        height: 100%;
+        justify-content: flex-start;
+    }
+
+    &__title {
+        color: $primary-color-subsidiary;
+
+        @include custom-responsive("min", 550px) {font-size: $size-increment-x5;}
+        @include custom-responsive("min", 650px) {font-size: $size-increment-x6;}
+
+        @include tablet-responsive {font-size: $size-increment-x8;}
+    }
+}
