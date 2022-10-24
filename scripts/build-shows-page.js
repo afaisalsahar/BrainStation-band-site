@@ -78,9 +78,12 @@ const shows = [
         showLocation.append(showLocationLabel, showLocationPlace);
 
         const showCTA = setContent(createElement("a", [`${classNameBlock}action`]), "Buy Tickets");
+        showCTA.href = "";
+        showCTA.addEventListener("click", event => event.preventDefault());
+
         const showDivider = createElement("hr", [`${classNameBlock}divider`]);
 
-        showsTicketContainer.addEventListener("click", (event) => {
+        showsTicketContainer.addEventListener("click", event => {
             event.stopPropagation();
 
             document.querySelectorAll((`.${classNameBlock}ticket--selected`))

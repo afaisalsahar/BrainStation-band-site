@@ -43,7 +43,12 @@
         @include padding-headline("mobile");
 
         @include tablet-responsive {
+            @include flex-item-realestate(0, 1, 70%);
             font-size: $size-increment-x8;
+        }
+        
+        @include custom-responsive("min", 885px) {
+            @include flex-item-realestate(0, 1, 58%);
         }
 
         @include desktop-responsive {
@@ -173,6 +178,9 @@
     
     &__action {
         @extend .cta;
+
+        @include tablet-responsive {letter-spacing: -.01rem;}
+        @include custom-responsive("min", 780px) {letter-spacing: 0;}
     }
 
     &__divider {
