@@ -116,7 +116,7 @@ span, label {
   display: block;
 }
 
-span {
+.hero, footer {
   color: #FFFFFF;
 }
 
@@ -131,7 +131,7 @@ hr {
   max-width: 120px;
 }
 
-.flex-container, .conversation__comment, .conversation__avatar, .conversation__item, .conversation__content, .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+.flex-container, .conversation__comment, .conversation__avatar, .conversation__submit, .conversation__item, .conversation__content, .cta, .conversation__action, .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -153,6 +153,29 @@ hr {
   .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
     padding: 0 0;
   }
+}
+
+.cta, .conversation__action {
+  min-height: 2.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .cta, .conversation__action {
+    min-width: 150px;
+    padding: 0 2rem;
+  }
+}
+
+.label {
+  margin-bottom: 0.25rem;
+  color: #AFAFAF;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* ###  header/navigation   ### */
@@ -653,21 +676,17 @@ hr {
   resize: none;
   min-height: 120px;
 }
-.conversation__action {
-  min-height: 2.5rem;
-  background-color: #323232;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
+.conversation__submit {
+  justify-content: flex-end;
+  flex: 1 1 100%;
 }
 @media screen and (min-width: 768px) {
   .conversation__action {
-    min-width: 150px;
     width: 25%;
-    padding: 0 2rem;
-    float: right;
   }
+}
+.conversation__items {
+  flex: 1 1 100%;
 }
 @media screen and (min-width: 1280px) {
   .conversation__items {
@@ -680,14 +699,18 @@ hr {
   flex-wrap: nowrap;
   padding: 16px 0;
 }
+.conversation__content {
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
 .conversation__username, .conversation__timestamp {
   padding-bottom: 1rem;
 }
 .conversation__timestamp {
   color: #AFAFAF;
 }
-.conversation__content {
-  justify-content: space-between;
+.conversation__body {
+  flex: 1 1 100%;
 }
 
 /* ###  footer/contact   ### *//*# sourceMappingURL=bio.css.map */

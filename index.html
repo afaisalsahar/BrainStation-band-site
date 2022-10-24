@@ -99,72 +99,18 @@
                     <form class="conversation__form" action="">
                         <div class="conversation__name">
                             <label class="conversation__label" for="conversation__input">Name</label>
-                            <input class="conversation__input" type="text" name="name" id="conversation__input" placeholder="Enter your name">
+                            <input class="conversation__input" type="text" name="name" id="conversation__input" placeholder="Enter your name" required>
                         </div>
                         <div class="conversation__text">
                             <label class="conversation__label" for="conversation__textarea">Comment</label>
-                            <textarea class="conversation__textarea" name="textarea" id="conversation__textarea" placeholder="Add a new comment"></textarea>
+                            <textarea class="conversation__textarea" name="textarea" id="conversation__textarea" placeholder="Add a new comment" required></textarea>
                         </div>
-                        <button class="conversation__action">Comment</button>
+                        <div class="conversation__submit">
+                            <button class="conversation__action">Comment</button>
+                        </div>
                     </form>
                 </div>
-
-                <div class="conversation__items">
-
-                <hr class="conversation__divider">
-                
-                    <div class="conversation__item">
-                        <div class="conversation__thumbnail">
-                            <div class="conversation__avatar">
-                                <!-- <img class="conversation__image" src="./assets/images/Mohan-muruge.jpg" alt="Commenter avatar"> -->
-                            </div>
-                        </div>
-                        <div class="conversation__content">
-                            <h3 class="conversation__username">Connor Walton</h3>
-                            <span class="conversation__timestamp">02/17/2021</span>
-                            <p class="conversation__body">
-                                This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.
-                            </p>
-                        </div>
-                    </div>
-
-                    <hr class="conversation__divider">
-
-                    <div class="conversation__item">
-                        <div class="conversation__thumbnail">
-                            <div class="conversation__avatar">
-                                <!-- <img class="conversation__image" src="./assets/images/Mohan-muruge.jpg" alt="Commenter avatar"> -->
-                            </div>
-                        </div>
-                        <div class="conversation__content">
-                            <h3 class="conversation__username">Connor Walton</h3>
-                            <span class="conversation__timestamp">02/17/2021</span>
-                            <p class="conversation__body">
-                                This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.
-                            </p>
-                        </div>
-                    </div>
-
-                    <hr class="conversation__divider">
-
-                    <div class="conversation__item">
-                        <div class="conversation__thumbnail">
-                            <div class="conversation__avatar">
-                                <!-- <img class="conversation__image" src="./assets/images/Mohan-muruge.jpg" alt="Commenter avatar"> -->
-                            </div>
-                        </div>
-                        <div class="conversation__content">
-                            <h3 class="conversation__username">Connor Walton</h3>
-                            <span class="conversation__timestamp">02/17/2021</span>
-                            <p class="conversation__body">
-                                This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.
-                            </p>
-                        </div>
-                    </div>
-
-                    <hr class="conversation__divider">
-                    
-                </div>
+                <div class="conversation__items"></div>
             </div>
         </section>
     </main>
@@ -214,5 +160,7 @@
             <p class="contact__copyright">Copyright The Bees Knees &#169;   2021 All Rights Reserved</p>
         </div>
     </footer>
+
+    <script src="scripts/index-page.js"></script>
 </body>
 </html>

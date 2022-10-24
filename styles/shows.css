@@ -116,7 +116,7 @@ span, label {
   display: block;
 }
 
-span {
+.hero, footer {
   color: #FFFFFF;
 }
 
@@ -131,7 +131,7 @@ hr {
   max-width: 120px;
 }
 
-.flex-container, .hero__content, .container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+.flex-container, .hero__content, .shows__header, .shows__ticket, .cta, .shows__action, .container, .shows__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -139,20 +139,43 @@ hr {
   align-items: center;
 }
 
-.container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+.container, .shows__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   max-width: 1044px;
   padding: 0 1rem;
   margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
-  .container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+  .container, .shows__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
     padding: 0 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+  .container, .shows__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
     padding: 0 0;
   }
+}
+
+.cta, .shows__action {
+  min-height: 2.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .cta, .shows__action {
+    min-width: 150px;
+    padding: 0 2rem;
+  }
+}
+
+.label, .shows__label {
+  margin-bottom: 0.25rem;
+  color: #AFAFAF;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* ###  header/navigation   ### */
@@ -460,5 +483,110 @@ hr {
 @media screen and (min-width: 1280px) {
   .hero__player {
     flex: 1 1 50%;
+  }
+}
+
+/* ###  shows/tickets   ### */
+.shows__container {
+  justify-content: flex-start;
+}
+@media screen and (min-width: 768px) {
+  .shows__container {
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__container {
+    flex-wrap: nowrap;
+    padding-top: 3rem;
+  }
+}
+.shows__title {
+  flex: 1 1 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__title {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__title {
+    flex: 0 1 20%;
+    align-self: flex-start;
+    padding: 0;
+    margin-top: -1rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__content {
+    flex: 0 1 80%;
+  }
+}
+.shows__content, .shows__ticket {
+  flex: 1 1 100%;
+}
+.shows__header {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .shows__header {
+    display: flex;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+  }
+}
+.shows__ticket {
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__ticket {
+    flex-wrap: wrap;
+    padding: 1.5rem 1.125rem;
+  }
+  .shows__ticket:hover {
+    background-color: #FAFAFA;
+    cursor: pointer;
+  }
+  .shows__ticket--selected {
+    background-color: #E1E1E1;
+  }
+  .shows__ticket--selected:hover {
+    background-color: #E1E1E1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shows__label--mobile {
+    display: none;
+  }
+}
+.shows__timestamp, .shows__venue, .shows__location, .shows__action, .shows__label {
+  flex: 1 1 100%;
+}
+@media screen and (min-width: 768px) {
+  .shows__timestamp, .shows__venue, .shows__location, .shows__action, .shows__label {
+    flex: 0 0 25%;
+  }
+}
+.shows__timestamp, .shows__venue, .shows__location {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__timestamp, .shows__venue, .shows__location {
+    padding-bottom: 0;
+  }
+}
+.shows__city {
+  font-weight: 600;
+}
+.shows__divider {
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .shows__divider {
+    margin-bottom: 0;
   }
 }/*# sourceMappingURL=shows.css.map */

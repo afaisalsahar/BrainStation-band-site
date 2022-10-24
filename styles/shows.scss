@@ -62,3 +62,123 @@
         }
     }
 }
+
+/* ###  shows/tickets   ### */
+.shows {
+    &__container {
+        @extend .container;
+
+        justify-content: flex-start;
+
+        @include tablet-responsive {
+            @include padding-component("tablet");
+        }
+
+        @include desktop-responsive {
+            flex-wrap: nowrap;
+            padding-top: $size-increment-x7;
+        }
+    }
+
+    &__title {
+        @include flex-item-realestate(1, 1, 100%);
+        @include padding-headline("mobile");
+        
+        @include tablet-responsive {
+            @include padding-headline("tablet");
+        }
+        @include desktop-responsive {
+            @include flex-item-realestate(0, 1, 20%);
+            align-self: flex-start;
+            padding: 0;
+            margin-top: -1rem;
+        }
+    }
+
+    &__content {
+        @include desktop-responsive {
+            @include flex-item-realestate(0, 1, 80%);
+        }
+    }
+
+    &__content, &__ticket {
+        @include flex-item-realestate(1, 1, 100%);
+    }
+
+    &__header {
+        @extend .flex-container;
+        
+        display: none;
+        
+        @include tablet-responsive {
+            display: flex;
+            padding-left: 1.125rem;
+            padding-right: 1.125rem;
+        }
+    }
+
+    &__ticket {
+        @extend .flex-container;
+        justify-content: flex-start;
+
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            flex-wrap: wrap;
+            padding: $size-increment-x4 1.125rem; 
+
+            &:hover {
+                background-color: $secondary-color-subsidiary;
+                cursor: pointer;
+            }
+
+            &--selected {
+                background-color: $secondary-color-alternate;
+                &:hover {
+                    background-color: $secondary-color-alternate;
+                }
+            }
+        }
+    }
+
+    &__label {
+        @extend .label;
+
+        @include tablet-responsive {
+            &--mobile {
+                display: none;
+            }
+        }
+    }
+
+    &__timestamp, &__venue, &__location, &__action, &__label {
+        @include flex-item-realestate(1, 1, 100%);
+
+        @include tablet-responsive {
+            @include flex-item-realestate(0, 0, 25%);
+        }
+    }
+
+    &__timestamp, &__venue, &__location {
+        @include padding-component("mobile");
+
+        @include tablet-responsive {
+            padding-bottom: 0;
+        }
+    }
+
+    &__city {
+        font-weight: $font-weight-demi;
+    }
+    
+    &__action {
+        @extend .cta;
+    }
+
+    &__divider {
+        margin-bottom: $size-increment-x3;
+        @include tablet-responsive {
+            margin-bottom: 0;
+        }
+    }
+}
