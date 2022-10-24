@@ -1,3 +1,5 @@
+/* ###  Comments Posted   ### */
+
 const comments = [
     {
         name: 'Connor Walton',
@@ -16,6 +18,8 @@ const comments = [
     }
 ];
 
+/* ###  Store new comments   ### */
+
 let storeComments = target => {
     const timestamp = new Date();
     const comment = {
@@ -26,18 +30,16 @@ let storeComments = target => {
     return comments.unshift(comment);
 };
 
-let createElement = (tag, classNames) => {
-   const element = document.createElement(tag);
-   classNames.forEach(classname => element.classList.add(classname));
-   return element;
-}
+/* ###  Delete all comments   ### */
 
 let clearComments = () => document.querySelector(".conversation__items").innerHTML = ' ';
 
-let renderComments = commentsObj => {
-    const data = commentsObj ? commentsObj : comments;
+/* ###  Render comments on page   ### */
+
+let displayComment = commentsObj => {
 
     clearComments();
+    const data = commentsObj ? commentsObj : comments;
 
     const classNameBlock = "conversation__";
     const mainContainer = document.querySelector(`.${classNameBlock}items`);
@@ -54,12 +56,9 @@ let renderComments = commentsObj => {
     
         const content = createElement("div", [`${classNameBlock}content`]);
 
-        const name = createElement("h3", [`${classNameBlock}username`]);
-        name.append(comment.name);
-        const timestamp = createElement("span", [`${classNameBlock}timestamp`]);
-        timestamp.append(comment.date);
-        const body = createElement("p", [`${classNameBlock}body`]);
-        body.append(comment.comment);
+        const name = setContent(createElement("h3", [`${classNameBlock}username`]), comment.name);
+        const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), comment.date);
+        const body = setContent(createElement("p", [`${classNameBlock}body`]), comment.comment);
         const divider = createElement("hr", [`${classNameBlock}divider`]);
 
         content.append(name, timestamp, body);
@@ -68,12 +67,18 @@ let renderComments = commentsObj => {
     });
 }
 
-renderComments();
+/* ###  Handle comment submission  ### */
 
 document.querySelector(".conversation__form").addEventListener("submit", event => {
     event.preventDefault(); event.stopPropagation();
     const form = event.target;
-    
-    storeComments(form) ? form.reset() : console.log("an error occured storing this comment");
-    renderComments();
+
+    if(storeComments(form)) {
+        displayComment();
+        form.reset();
+    } else {
+        return "An error occured, please try again";
+    }
 });
+
+displayComment();

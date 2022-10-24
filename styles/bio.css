@@ -591,7 +591,7 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .conversation__comment {
-    max-width: 50%;
+    max-width: 55%;
     margin: auto;
   }
 }
@@ -599,7 +599,7 @@ hr {
   align-self: flex-start;
 }
 .conversation__thumbnail--active {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 @media screen and (min-width: 768px) {
   .conversation__thumbnail--active {
@@ -608,12 +608,18 @@ hr {
 }
 .conversation__avatar {
   justify-content: flex-start;
-  width: 3rem;
-  height: 3rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 1rem;
   background-color: #E1E1E1;
+}
+@media screen and (min-width: 768px) {
+  .conversation__avatar {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 .conversation__image {
   width: auto;
@@ -690,7 +696,7 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .conversation__items {
-    max-width: 50.1%;
+    max-width: 55%;
     margin: auto;
   }
 }
