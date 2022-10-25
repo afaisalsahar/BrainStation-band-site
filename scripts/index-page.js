@@ -1,23 +1,3 @@
-/* ###  Comments Posted   ### */
-
-const comments = [
-    {
-        name: 'Connor Walton',
-        date: '02/17/2021',
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'
-    },
-    {
-        name: 'Emilie Beach',
-        date: '01/09/2021',
-        comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.'
-    },
-    {
-        name: 'Miles Acosta',
-        date: '12/20/2020',
-        comment: 'I can\'t stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can\'t get enough.'
-    }
-];
-
 /* ###  Store new comments   ### */
 
 let storeComments = target => {
@@ -36,19 +16,18 @@ let clearComments = () => document.querySelector(".conversation__items").innerHT
 
 /* ###  Render comments on page   ### */
 
-let displayComment = commentsObj => {
-
-    clearComments();
-    const data = commentsObj ? commentsObj : comments;
+let displayComment = comments => {
+    const data = comments.data;
+    data.sort((a, b) => b.timestamp - a.timestamp);
 
     const classNameBlock = "conversation__";
-    const mainContainer = document.querySelector(`.${classNameBlock}items`);
-
-    mainContainer.appendChild(createElement("hr", [`${classNameBlock}divider`]));
+    
+    const container = document.querySelector(`.${classNameBlock}items`);
+    container.append(createElement("hr", [`${classNameBlock}divider`]));
 
     data.forEach(comment => {
 
-        const commentContainer = createElement("article", [`${classNameBlock}item`]);
+        const commentItem = createElement("article", [`${classNameBlock}item`]);
     
         const thumbnail = createElement("div", [`${classNameBlock}thumbnail`]);
         const avatar = createElement("div", [`${classNameBlock}avatar`]);
@@ -57,13 +36,13 @@ let displayComment = commentsObj => {
         const content = createElement("div", [`${classNameBlock}content`]);
 
         const name = setContent(createElement("h3", [`${classNameBlock}username`]), comment.name);
-        const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), comment.date);
+        const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), convertDate(comment.timestamp));
         const body = setContent(createElement("p", [`${classNameBlock}body`]), comment.comment);
         const divider = createElement("hr", [`${classNameBlock}divider`]);
 
         content.append(name, timestamp, body);
-        commentContainer.append(thumbnail, content);
-        mainContainer.append(commentContainer, divider);
+        commentItem.append(thumbnail, content);
+        container.append(commentItem, divider);
     });
 }
 
@@ -73,12 +52,27 @@ document.querySelector(".conversation__form").addEventListener("submit", event =
     event.preventDefault(); event.stopPropagation();
     const form = event.target;
 
-    if(storeComments(form)) {
-        displayComment();
+    axios.post(`${BASEURI}/comments?api_key=${APIKEY}`, {
+        "name": form.name.value,
+        "comment": form.textarea.value
+    }).then(result => {
         form.reset();
-    } else {
-        return "An error occured, please try again";
-    }
+        return axios.get(`${BASEURI}/comments?api_key=${APIKEY}`);
+     })
+     .then(result => {
+        clearComments();
+        displayComment(result);
+     })
+     .catch(error => {
+        console.log(error);
+     });
 });
 
-displayComment();
+axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
+     .then(result => {
+        clearComments();
+        displayComment(result);
+     })
+     .catch(error => {
+        console.log(error);
+     });
