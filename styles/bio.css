@@ -654,6 +654,10 @@ hr {
   padding: 0.75rem;
   background-color: #f1f1f1;
 }
+.conversation__input--error, .conversation__textarea--error {
+  border-color: #D22D2D;
+  box-shadow: 0 0 5px rgba(210, 45, 45, 0.5);
+}
 @media screen and (min-width: 768px) {
   .conversation__input, .conversation__textarea {
     min-height: 3rem;

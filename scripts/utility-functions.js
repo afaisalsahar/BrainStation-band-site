@@ -3,7 +3,7 @@ const BASEURI = 'https://project-1-api.herokuapp.com';
 
 /* ###  Create and return new element with target classnames   ### */
 
-let createElement = (tag, classNames) => {
+const createElement = (tag, classNames) => {
     const element = document.createElement(tag);
     classNames.forEach(classname => element.classList.add(classname));
     return element;
@@ -11,21 +11,36 @@ let createElement = (tag, classNames) => {
  
  /* ###  Set and return an elements content   ### */
  
-let setContent = (element, content) => {
+const setContent = (element, content) => {
      element.innerText = content;
      return element;
 };
 
  /* ###  convert date epoch to human readable   ### */
 
-let convertDate = (epochMS) => {
-    const date = new Date(0);
-    date.setUTCMilliseconds(epochMS);
-    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+const convertDate = (epochMS) => {
+    const date = new Date(epochMS);
+    
+    let day = date.getDate().toString();
+    if (day.length === 1) day = `0${day}`;
+
+    let month = date.getMonth().toString();
+    if (month.length === 1) month = `0${month}`;
+
+    // const day = (date.getDate().toString().length == 1) ? `0${date.getDate().toString()}` : date.getDate().toString();
+    // const month = (date.getMonth().toString().length == 1) ? `0${date.getMonth().toString()}` : date.getMonth().toString();
+    
+    return `${month}/${day}/${date.getFullYear()}`;
 }
 
  /* ###  Improve link item usability   ### */
  
- document.querySelectorAll(".topbar__item").forEach(element => {
-    element.addEventListener("click", event => event.target.childNodes[0].click());
- });
+const improveMenuUsability = () => {
+    document.querySelectorAll(".topbar__item").forEach(element => {
+        element.addEventListener("click", event => event.target.childNodes[0].click());
+    });
+}
+
+export {APIKEY, BASEURI};
+export {createElement, setContent, convertDate, improveMenuUsability};
+

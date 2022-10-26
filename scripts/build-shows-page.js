@@ -1,3 +1,6 @@
+import {APIKEY, BASEURI} from './utility-functions.js';
+import {createElement, setContent, convertDate, improveMenuUsability} from './utility-functions.js';
+
 /* ###  Render shows component   ### */
 
  let renderShows = shows => {
@@ -72,3 +75,5 @@ axios.get(`${BASEURI}/showdates?api_key=${APIKEY}`)
      .catch(error => {
         console.log(error);
      });
+
+improveMenuUsability();

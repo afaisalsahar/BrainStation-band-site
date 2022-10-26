@@ -1,22 +1,21 @@
-/* ###  Store new comments   ### */
+import {APIKEY, BASEURI} from './utility-functions.js';
+import {createElement, setContent, convertDate, improveMenuUsability} from './utility-functions.js';
 
-let storeComments = target => {
-    const timestamp = new Date();
-    const comment = {
-        name: target.name.value,
-        date: `${timestamp.getDate()}/${timestamp.getMonth()}/${timestamp.getFullYear()}`,
-        comment: target.textarea.value
-    }
-    return comments.unshift(comment);
-};
+/* ###  simple text input/textarea validation   ### */
 
-/* ###  Delete all comments   ### */
+const validateTextInput = input => (input === '' || !/^[\a-zA-Z ]*$/.test(input)) ? false : true;
 
-let clearComments = () => document.querySelector(".conversation__items").innerHTML = ' ';
+/* ###  add/remove invalid form input types   ### */
 
-/* ###  Render comments on page   ### */
+const styleInvalidFormInput = (element, type, classname) => (type === 'add') ? element.classList.add(classname) : element.classList.remove(classname);
 
-let displayComment = comments => {
+/* ###  clear/delete comments   ### */
+
+const clearComments = () => document.querySelector(".conversation__items").innerHTML = ' ';
+
+/* ###  render comments on page   ### */
+
+const displayComment = comments => {
     const data = comments.data;
     data.sort((a, b) => b.timestamp - a.timestamp);
 
@@ -46,26 +45,44 @@ let displayComment = comments => {
     });
 }
 
-/* ###  Handle comment submission  ### */
+/* ###  handle comment submission  ### */
 
 document.querySelector(".conversation__form").addEventListener("submit", event => {
     event.preventDefault(); event.stopPropagation();
+    
+    const classNameBlock = "conversation__"; 
     const form = event.target;
+    const name = form.name.value.trim();
+    const comment = form.textarea.value.trim();
 
-    axios.post(`${BASEURI}/comments?api_key=${APIKEY}`, {
-        "name": form.name.value,
-        "comment": form.textarea.value
-    }).then(result => {
-        form.reset();
-        return axios.get(`${BASEURI}/comments?api_key=${APIKEY}`);
-     })
-     .then(result => {
-        clearComments();
-        displayComment(result);
-     })
-     .catch(error => {
-        console.log(error);
-     });
+    if (validateTextInput(name) && validateTextInput(comment)) {
+
+        form.name.classList.remove(`${classNameBlock}input--error`);
+        form.textarea.classList.remove(`${classNameBlock}textarea--error`);
+
+        axios.post(`${BASEURI}/comments?api_key=${APIKEY}`, {
+            "name": name,
+            "comment": comment
+        }).then(result => {
+            form.reset();
+            return axios.get(`${BASEURI}/comments?api_key=${APIKEY}`);
+         })
+         .then(result => {
+            clearComments();
+            displayComment(result);            
+         })
+         .catch(error => {
+            console.log("Error: ", error);
+         });
+    } else {
+        (!validateTextInput(name)) ?
+            styleInvalidFormInput(form.name, 'add', `${classNameBlock}input--error`) :
+            styleInvalidFormInput(form.name, 'remove', `${classNameBlock}input--error`);
+
+        (!validateTextInput(comment)) ?
+            styleInvalidFormInput(form.textarea, 'add', `${classNameBlock}textarea--error`) :
+            styleInvalidFormInput(form.textarea, 'remove', `${classNameBlock}textarea--error`);
+    }
 });
 
 axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
@@ -74,5 +91,7 @@ axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
         displayComment(result);
      })
      .catch(error => {
-        console.log(error);
-     });
+        console.log("Error: ", error);
+    });
+
+improveMenuUsability();

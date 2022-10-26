@@ -225,6 +225,11 @@
         padding: $size-increment-x2-1;
         background-color: #f1f1f1;
 
+        &--error {
+            border-color: #D22D2D;
+            box-shadow: 0 0 5px rgb(210, 45, 45, .5);   
+        }
+
         @include tablet-responsive {
             min-height: $size-increment-x7;
             padding: $size-increment-x3;
