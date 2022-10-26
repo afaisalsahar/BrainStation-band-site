@@ -1,42 +1,8 @@
-/* ###  shows listing   ### */
-
-const shows = [
-    {
-        date: 'Mon Sept 06 2021',
-        venue: 'Ronald Lane',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Tue Sept 21 2021',
-        venue: 'Pier 3 East',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Fri Oct 15 2021',
-        venue: 'View Lounge',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Sat Nov 06 2021',
-        venue: 'Hyatt Agency',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Fri Nov 26 2021',
-        venue: 'Moscow Center',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: 'Wed Dec 15 2021',
-        venue: 'Press Club',
-        location: 'San Francisco, CA'
-    }
-];
-
 /* ###  Render shows component   ### */
 
- let rendershows = showsObj => {
-    const data = showsObj ? showsObj : shows;
+ let renderShows = shows => {
+    const data = shows.data;
+    data.sort((a, b) => b.date - a.date);
 
     const classNameBlock = "shows__";
     const showsContainer = createElement("div", [`${classNameBlock}container`]);
@@ -64,12 +30,12 @@ const shows = [
 
         const showtimestamp = createElement("li", [`${classNameBlock}timestamp`]);
         const showtimestampLabel = showsHeaderLabels[0];
-        const showtimestampDate = setContent(createElement("span", [`${classNameBlock}date`]), show.date);
+        const showtimestampDate = setContent(createElement("span", [`${classNameBlock}date`]), convertDate(show.date));
         showtimestamp.append(showtimestampLabel, showtimestampDate);
 
         const showVenue = createElement("li", [`${classNameBlock}venue`]);
         const showVenueLabel = showsHeaderLabels[1];
-        const showVenuePlace = setContent(createElement("span", [`${classNameBlock}place`]), show.venue);
+        const showVenuePlace = setContent(createElement("span", [`${classNameBlock}place`]), show.place);
         showVenue.append(showVenueLabel, showVenuePlace);
 
         const showLocation = createElement("li", [`${classNameBlock}location`]);
@@ -89,7 +55,7 @@ const shows = [
             document.querySelectorAll((`.${classNameBlock}ticket--selected`))
             .forEach(element => {
                 element.classList.remove(`${classNameBlock}ticket--selected`);
-            });
+            }); 
             showsTicketContainer.classList.add(`${classNameBlock}ticket--selected`);
 
         });
@@ -99,5 +65,10 @@ const shows = [
     });
 };
 
-rendershows();
-
+axios.get(`${BASEURI}/showdates?api_key=${APIKEY}`)
+     .then(result => {
+        renderShows(result);
+     })
+     .catch(error => {
+        console.log(error);
+     });
