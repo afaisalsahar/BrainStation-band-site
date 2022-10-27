@@ -45,17 +45,17 @@ q:before, q:after {
 }
 
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Regular.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Regular.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 400;
 }
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Demi.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Demi.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Demi.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 600;
 }
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Bold.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Bold.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Bold.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 700;
 }
@@ -63,7 +63,7 @@ q:before, q:after {
 /* ## utiilty mixins ## */
 /* ## Default Styles ## */
 body {
-  font-family: "AvenirNext";
+  font-family: AvenirNext, Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -503,7 +503,7 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .shows__container {
-    flex-wrap: nowrap;
+    flex-wrap: nowrapf;
     padding-top: 3rem;
   }
 }
@@ -569,11 +569,11 @@ hr {
     display: none;
   }
 }
-.shows__timestamp, .shows__venue, .shows__location, .shows__action, .shows__label {
+.shows__timestamp, .shows__venue, .shows__location, .shows__purchase, .shows__label {
   flex: 1 1 100%;
 }
 @media screen and (min-width: 768px) {
-  .shows__timestamp, .shows__venue, .shows__location, .shows__action, .shows__label {
+  .shows__timestamp, .shows__venue, .shows__location, .shows__purchase, .shows__label {
     flex: 0 0 25%;
   }
 }
@@ -585,15 +585,15 @@ hr {
     padding-bottom: 0;
   }
 }
-.shows__city {
+.shows__date {
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   .shows__action {
-    letter-spacing: -0.01rem;
+    letter-spacing: -0.03rem;
   }
 }
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 790px) {
   .shows__action {
     letter-spacing: 0;
   }

@@ -80,7 +80,7 @@
         }
 
         @include desktop-responsive {
-            flex-wrap: nowrap;
+            flex-wrap: nowrapf;
             padding-top: $size-increment-x7;
         }
     }
@@ -156,7 +156,7 @@
         }
     }
 
-    &__timestamp, &__venue, &__location, &__action, &__label {
+    &__timestamp, &__venue, &__location, &__purchase, &__label {
         @include flex-item-realestate(1, 1, 100%);
 
         @include tablet-responsive {
@@ -172,15 +172,15 @@
         }
     }
 
-    &__city {
+    &__date {
         font-weight: $font-weight-demi;
     }
     
     &__action {
         @extend .cta;
 
-        @include tablet-responsive {letter-spacing: -.01rem;}
-        @include custom-responsive("min", 780px) {letter-spacing: 0;}
+        @include tablet-responsive {letter-spacing: -.03rem;}
+        @include custom-responsive("min", 790px) {letter-spacing: 0;}
     }
 
     &__divider {

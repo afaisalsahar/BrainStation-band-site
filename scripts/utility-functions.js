@@ -1,4 +1,4 @@
-const APIKEY = '60db57e4-6533-4104-9697-97d46fc9a8ae';
+const APIKEY = '147b6ef6-f201-4cd1-a5ae-e436ec7f7791';
 const BASEURI = 'https://project-1-api.herokuapp.com';
 
 /* ###  Create and return new element with target classnames   ### */
@@ -18,19 +18,17 @@ const setContent = (element, content) => {
 
  /* ###  convert date epoch to human readable   ### */
 
-const convertDate = (epochMS) => {
+const convertDate = (format, epochMS) => {
     const date = new Date(epochMS);
-    
-    let day = date.getDate().toString();
-    if (day.length === 1) day = `0${day}`;
+    const newDate = date.toString().split(' ').splice(0, 4);
 
-    let month = date.getMonth().toString();
-    if (month.length === 1) month = `0${month}`;
-
-    // const day = (date.getDate().toString().length == 1) ? `0${date.getDate().toString()}` : date.getDate().toString();
-    // const month = (date.getMonth().toString().length == 1) ? `0${date.getMonth().toString()}` : date.getMonth().toString();
+    if (format === 'comment') {
+        const month = (date.getMonth() + 1).toString();
+        (month.length === 1) ? newDate.splice(0, 2, `0${month}`) : newDate.splice(0, 2, month);
+        return newDate.join('/');
+    }
     
-    return `${month}/${day}/${date.getFullYear()}`;
+    return newDate.join(' ');
 }
 
  /* ###  Improve link item usability   ### */
@@ -43,4 +41,3 @@ const improveMenuUsability = () => {
 
 export {APIKEY, BASEURI};
 export {createElement, setContent, convertDate, improveMenuUsability};
-

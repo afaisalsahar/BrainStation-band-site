@@ -45,17 +45,17 @@ q:before, q:after {
 }
 
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Regular.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Regular.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 400;
 }
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Demi.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Demi.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Demi.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 600;
 }
 @font-face {
-  src: url("../assets/font/AvenirNextLTPro-Bold.woff2") format("woff2");
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"), url("../assets/fonts/alt/AvenirNextLTPro-Bold.ttf") format("ttf"), url("../assets/fonts/alt/AvenirNextLTPro-Bold.otf") format("otf");
   font-family: "AvenirNext";
   font-weight: 700;
 }
@@ -63,7 +63,7 @@ q:before, q:after {
 /* ## utiilty mixins ## */
 /* ## Default Styles ## */
 body {
-  font-family: "AvenirNext";
+  font-family: AvenirNext, Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 400;
@@ -668,17 +668,17 @@ hr {
   border-color: #323232;
 }
 .conversation__input::-moz-placeholder, .conversation__textarea::-moz-placeholder {
-  font-family: "AvenirNext";
+  font-family: AvenirNext, Arial, Helvetica, sans-serif;
   color: #323232;
   font-weight: 600;
 }
 .conversation__input:-ms-input-placeholder, .conversation__textarea:-ms-input-placeholder {
-  font-family: "AvenirNext";
+  font-family: AvenirNext, Arial, Helvetica, sans-serif;
   color: #323232;
   font-weight: 600;
 }
-.conversation__input::placeholder, .conversation__textarea::placeholder {
-  font-family: "AvenirNext";
+.conversation__input, .conversation__textarea, .conversation__input::placeholder, .conversation__textarea::placeholder {
+  font-family: AvenirNext, Arial, Helvetica, sans-serif;
   color: #323232;
   font-weight: 600;
 }

@@ -5,7 +5,6 @@ import {createElement, setContent, convertDate, improveMenuUsability} from './ut
 
  let renderShows = shows => {
     const data = shows.data;
-    data.sort((a, b) => b.date - a.date);
 
     const classNameBlock = "shows__";
     const showsContainer = createElement("div", [`${classNameBlock}container`]);
@@ -33,7 +32,7 @@ import {createElement, setContent, convertDate, improveMenuUsability} from './ut
 
         const showtimestamp = createElement("li", [`${classNameBlock}timestamp`]);
         const showtimestampLabel = showsHeaderLabels[0];
-        const showtimestampDate = setContent(createElement("span", [`${classNameBlock}date`]), convertDate(show.date));
+        const showtimestampDate = setContent(createElement("span", [`${classNameBlock}date`]), convertDate('shows', show.date));
         showtimestamp.append(showtimestampLabel, showtimestampDate);
 
         const showVenue = createElement("li", [`${classNameBlock}venue`]);
@@ -46,15 +45,15 @@ import {createElement, setContent, convertDate, improveMenuUsability} from './ut
         const showLocationPlace = setContent(createElement("span", [`${classNameBlock}city`]), show.location);
         showLocation.append(showLocationLabel, showLocationPlace);
 
+        const showCTAContainer = createElement("li", [`${classNameBlock}purchase`]);
         const showCTA = setContent(createElement("a", [`${classNameBlock}action`]), "Buy Tickets");
         showCTA.href = "";
         showCTA.addEventListener("click", event => event.preventDefault());
+        showCTAContainer.append(showCTA);
 
         const showDivider = createElement("hr", [`${classNameBlock}divider`]);
 
         showsTicketContainer.addEventListener("click", event => {
-            event.stopPropagation();
-
             document.querySelectorAll((`.${classNameBlock}ticket--selected`))
             .forEach(element => {
                 element.classList.remove(`${classNameBlock}ticket--selected`);
@@ -63,7 +62,7 @@ import {createElement, setContent, convertDate, improveMenuUsability} from './ut
 
         });
 
-        showsTicketContainer.append(showtimestamp, showVenue, showLocation, showCTA);
+        showsTicketContainer.append(showtimestamp, showVenue, showLocation, showCTAContainer);
         showsContentContainer.append(showsTicketContainer, showDivider);
     });
 };

@@ -15,40 +15,34 @@ const clearComments = () => document.querySelector(".conversation__items").inner
 
 /* ###  render comments on page   ### */
 
-const displayComment = comments => {
-    const data = comments.data;
-    data.sort((a, b) => b.timestamp - a.timestamp);
-
+const displayComment = comment => {
     const classNameBlock = "conversation__";
     
     const container = document.querySelector(`.${classNameBlock}items`);
-    container.append(createElement("hr", [`${classNameBlock}divider`]));
+    // container.append(createElement("hr", [`${classNameBlock}divider`]));
 
-    data.forEach(comment => {
-
-        const commentItem = createElement("article", [`${classNameBlock}item`]);
+    const commentItem = createElement("article", [`${classNameBlock}item`]);
     
-        const thumbnail = createElement("div", [`${classNameBlock}thumbnail`]);
-        const avatar = createElement("div", [`${classNameBlock}avatar`]);
-        thumbnail.append(avatar);
-    
-        const content = createElement("div", [`${classNameBlock}content`]);
+    const thumbnail = createElement("div", [`${classNameBlock}thumbnail`]);
+    const avatar = createElement("div", [`${classNameBlock}avatar`]);
+    thumbnail.append(avatar);
 
-        const name = setContent(createElement("h3", [`${classNameBlock}username`]), comment.name);
-        const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), convertDate(comment.timestamp));
-        const body = setContent(createElement("p", [`${classNameBlock}body`]), comment.comment);
-        const divider = createElement("hr", [`${classNameBlock}divider`]);
+    const content = createElement("div", [`${classNameBlock}content`]);
 
-        content.append(name, timestamp, body);
-        commentItem.append(thumbnail, content);
-        container.append(commentItem, divider);
-    });
+    const name = setContent(createElement("h3", [`${classNameBlock}username`]), comment.name);
+    const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), convertDate('comment', comment.timestamp));
+    const body = setContent(createElement("p", [`${classNameBlock}body`]), comment.comment);
+    const divider = createElement("hr", [`${classNameBlock}divider`]);
+
+    content.append(name, timestamp, body);
+    commentItem.append(thumbnail, content);
+    container.append(commentItem, divider);
 }
 
 /* ###  handle comment submission  ### */
 
 document.querySelector(".conversation__form").addEventListener("submit", event => {
-    event.preventDefault(); event.stopPropagation();
+    event.preventDefault();
     
     const classNameBlock = "conversation__"; 
     const form = event.target;
@@ -63,13 +57,15 @@ document.querySelector(".conversation__form").addEventListener("submit", event =
         axios.post(`${BASEURI}/comments?api_key=${APIKEY}`, {
             "name": name,
             "comment": comment
-        }).then(result => {
+        }).then(response => {
             form.reset();
             return axios.get(`${BASEURI}/comments?api_key=${APIKEY}`);
          })
-         .then(result => {
+         .then(response => {
             clearComments();
-            displayComment(result);            
+            response.data.sort((a, b) => b.timestamp - a.timestamp).forEach(comment => {
+                displayComment(comment);
+            });          
          })
          .catch(error => {
             console.log("Error: ", error);
@@ -86,9 +82,12 @@ document.querySelector(".conversation__form").addEventListener("submit", event =
 });
 
 axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
-     .then(result => {
+     .then(response => {
         clearComments();
-        displayComment(result);
+
+        response.data.sort((a, b) => b.timestamp - a.timestamp).forEach(comment => {
+            displayComment(comment);
+        });
      })
      .catch(error => {
         console.log("Error: ", error);

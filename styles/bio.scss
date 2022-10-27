@@ -239,7 +239,8 @@
     &__input:active, &__textarea:focus {
         border-color: $primary-color-main;
     }
-    
+
+    &__input, &__textarea,
     &__input::placeholder, &__textarea::placeholder {
         font-family: $font-face;
         color: $primary-color-main;

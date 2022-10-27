@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/shows.css">
+    <link rel="stylesheet" href="../styles/shows.css">
     <title>Bandsite | Shows | BrainStation Sprint-2</title>
 </head>
 <body>
     <header class="topbar">
         <div class="topbar__container">
-            <a class="topbar__back-to-home" href="./"><img class="topbar__logo" src="./assets/logo/Logo-bandsite.svg" alt="Bandsite Logo"></a>
+            <a class="topbar__back-to-home" href="../"><img class="topbar__logo" src="../assets/logos/Logo-bandsite.svg" alt="Bandsite Logo"></a>
             <nav class="topbar__navigation">
                 <ul class="topbar__items">
-                    <li class="topbar__item"><a  class="topbar__link" href="./">Biography</a></li>
+                    <li class="topbar__item"><a  class="topbar__link" href="../">Biography</a></li>
                     <li class="topbar__item topbar__item--active"><a  class="topbar__link" href="">Shows</a></li>
                 </ul>
             </nav>
@@ -27,7 +27,7 @@
                         <span class="hero__pretitle">Beautiful Beasts Album</span>                    
                         <h1 class="hero__title">Queen of Yellow x For The Stings</h1>
                         <div class="hero__player">
-                            <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/346653733&color=%23a85470&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
+                            <iframe width="100%" height="166" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/346653733&color=%23a85470&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
                         </div>    
                     </div>
                 </div>
@@ -38,15 +38,15 @@
     <footer class="contact">
         <div class="contact__container">
             <h2 class="contact__title">Get in Touch</h2>
-            <section class="contact__social">
-                <a class="contact__link" href="https://instagram.com/#"><img class="contact__icon contact__icon--instagram" src="./assets/icons/svg/Icon-instagram.svg" alt="follow instagram"></a>
-                <a class="contact__link" href="https://facebook.com/#"><img class="contact__icon contact__icon--facebook" src="./assets/icons/svg/Icon-facebook.svg" alt="follow facebook"></a>
-                <a class="contact__link" href="https://twitter.com/#"><img class="contact__icon contact__icon--twitter" src="./assets/icons/svg/Icon-twitter.svg" alt="follow twitter"></a>
-            </section>
+            <div class="contact__social">
+                <a class="contact__link" href="https://instagram.com/"><img class="contact__icon contact__icon--instagram" src="../assets/icons/svg/Icon-instagram.svg" alt="follow instagram"></a>
+                <a class="contact__link" href="https://facebook.com/"><img class="contact__icon contact__icon--facebook" src="../assets/icons/svg/Icon-facebook.svg" alt="follow facebook"></a>
+                <a class="contact__link" href="https://twitter.com/"><img class="contact__icon contact__icon--twitter" src="../assets/icons/svg/Icon-twitter.svg" alt="follow twitter"></a>
+            </div>
             <address class="contact__point">
                 <div class="contact__person">
-                    <h4 class="contact__name">Cam Adams</h4>
-                    <h4 class="contact__company">The Bees Knees Management</h4>
+                    <span class="contact__name">Cam Adams</span>
+                    <span class="contact__company">The Bees Knees Management</span>
                 </div>
                 <div class="contact__location">
                     <span class="contact__label">503 Broadway Penthouse,</span>
@@ -56,8 +56,8 @@
             </address>
             <address class="contact__point">
                 <div class="contact__person">
-                    <h4 class="contact__name">Pearl Gregg</h4>
-                    <h4 class="contact__company">Limitless Artist Group</h4>
+                    <span class="contact__name">Pearl Gregg</span>
+                    <span class="contact__company">Limitless Artist Group</span>
                 </div>
                 <div class="contact__location">
                     <span class="contact__label">Booking Agent for</span>
@@ -67,8 +67,8 @@
             </address>
             <address class="contact__point">
                 <div class="contact__person">
-                    <h4 class="contact__name">Carson Whyte</h4>
-                    <h4 class="contact__company">ARCH Entertainment</h4>    
+                    <span class="contact__name">Carson Whyte</span>
+                    <span class="contact__company">ARCH Entertainment</span>    
                 </div>
                 <div class="contact__location">
                     <span class="contact__label">Booking Agent for</span>
@@ -77,13 +77,13 @@
                 <a class="contact__email" href="mailto:cwhyte@archentertainment.com">cwhyte@archentertainment.com</a>
             </address>
 
-            <a class="contact__back-to-home" href="./index.html"><img class="contact__logo" src="./assets/logo/Logo-bandsite.svg" alt="Bandsite Logo"></a>
-            <p class="contact__copyright">Copyright The Bees Knees &#169;   2021 All Rights Reserved</p>
+            <a class="contact__back-to-home" href="../"><img class="contact__logo" src="../assets/logos/Logo-bandsite.svg" alt="Bandsite Logo"></a>
+            <p class="contact__copyright">Copyright The Bees Knees &#169; 2021 All Rights Reserved</p>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="./scripts/utility-functions.js"></script> -->
-    <script type="module" src="./scripts/build-shows-page.js"></script>
+    <script type="module" src="../scripts/build-shows-page.js"></script>
 </body>
 </html>

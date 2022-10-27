@@ -1,21 +1,30 @@
 @use './variables' as *;
 
 @font-face {
-    src: url("#{$font-path}/AvenirNextLTPro-Regular.woff2") format("woff2");
+    src: url("#{$font-path}/AvenirNextLTPro-Regular.woff2") format("woff2"),
+         url("#{$font-path}/AvenirNextLTPro-Regular.woff") format("woff"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Regular.ttf") format("ttf"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Regular.otf") format("otf");
 
     font-family: "AvenirNext";
     font-weight: 400;
 }
 
 @font-face {
-    src: url("#{$font-path}/AvenirNextLTPro-Demi.woff2") format("woff2");
+    src: url("#{$font-path}/AvenirNextLTPro-Demi.woff2") format("woff2"),
+         url("#{$font-path}/AvenirNextLTPro-Demi.woff") format("woff"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Demi.ttf") format("ttf"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Demi.otf") format("otf");
 
     font-family: "AvenirNext";
     font-weight: 600;
 }
 
 @font-face {
-    src: url("#{$font-path}/AvenirNextLTPro-Bold.woff2") format("woff2");
+    src: url("#{$font-path}/AvenirNextLTPro-Bold.woff2") format("woff2"),
+         url("#{$font-path}/AvenirNextLTPro-Bold.woff") format("woff"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Bold.ttf") format("ttf"),
+         url("#{$font-path}/alt/AvenirNextLTPro-Bold.otf") format("otf");
 
     font-family: "AvenirNext";
     font-weight: 700;
