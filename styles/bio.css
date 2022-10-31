@@ -13,11 +13,7 @@
 /* 80px */
 /* ##   colors   ## */
 /* ##   font   ## */
-/* ##   text styles   ## */
 /* ##   site Container   ## */
-/* ##   responsive breakpoint   ## */
-/* ##   branding   ## */
-/* ##   buttons   ## */
 /* ##   imagery   ## */
 /* ## Reset ## */
 html, body, div, span,
@@ -131,7 +127,7 @@ hr {
   max-width: 120px;
 }
 
-.flex-container, .conversation__comment, .conversation__avatar, .conversation__submit, .conversation__item, .conversation__content, .cta, .conversation__action, .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
+.flex-container, .conversation__comment, .conversation__avatar, .conversation__submit, .conversation__item, .conversation__content, .conversation__reaction, .cta, .conversation__action, .container, .about__container, .gallery__container, .conversation__container, .hero__container, .contact__container, .topbar__container, .topbar__items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -274,18 +270,19 @@ hr {
   .contact__title {
     font-size: 2.5rem;
     order: -1;
+    flex: 1 1 32%;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 790px) {
+  .contact__title {
     flex: 1 1 30%;
   }
 }
 @media screen and (min-width: 1280px) {
   .contact__title {
     flex: 0 1 30%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .contact__title {
-    padding-top: 3rem;
-    padding-bottom: 2.25rem;
   }
 }
 .contact__social {
@@ -329,6 +326,21 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .contact__point {
+    flex: 0 1 30%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .contact__point:first-of-type {
+    flex: 1 0 32%;
+  }
+}
+@media screen and (min-width: 790px) {
+  .contact__point:first-of-type {
+    flex: 1 0 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contact__point:first-of-type {
     flex: 0 1 30%;
   }
 }
@@ -656,7 +668,6 @@ hr {
 }
 .conversation__input--error, .conversation__textarea--error {
   border-color: #D22D2D;
-  box-shadow: 0 0 5px rgba(210, 45, 45, 0.5);
 }
 @media screen and (min-width: 768px) {
   .conversation__input, .conversation__textarea {
@@ -681,6 +692,9 @@ hr {
   font-family: AvenirNext, Arial, Helvetica, sans-serif;
   color: #323232;
   font-weight: 600;
+}
+.conversation__input, .conversation__textarea {
+  font-weight: 400;
 }
 .conversation__textarea {
   resize: none;
@@ -707,7 +721,7 @@ hr {
 .conversation__item {
   justify-content: flex-start;
   flex-wrap: nowrap;
-  padding: 16px 0;
+  padding: 1rem 0;
 }
 .conversation__content {
   justify-content: space-between;
@@ -721,6 +735,24 @@ hr {
 }
 .conversation__body {
   flex: 1 1 100%;
+  padding-bottom: 1rem;
+}
+.conversation__reaction {
+  flex: 1 1 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.conversation__reaction a {
+  color: #323232;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+.conversation__reaction a:hover {
+  color: #D22D2D;
+}
+.conversation__reaction span {
+  display: inline-block;
+  margin-left: 0.5rem;
 }
 
 /* ###  footer/contact   ### *//*# sourceMappingURL=bio.css.map */

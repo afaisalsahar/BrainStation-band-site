@@ -1,27 +1,46 @@
 import {APIKEY, BASEURI} from './utility-functions.js';
-import {createElement, setContent, convertDate, improveMenuUsability} from './utility-functions.js';
+import {createElement, classModifier, setContent, convertDate, sortComments, improveMenuUsability} from './utility-functions.js';
 
 /* ###  simple text input/textarea validation   ### */
 
-const validateTextInput = input => (input === '' || !/^[\a-zA-Z ]*$/.test(input)) ? false : true;
-
-/* ###  add/remove invalid form input types   ### */
-
-const styleInvalidFormInput = (element, type, classname) => (type === 'add') ? element.classList.add(classname) : element.classList.remove(classname);
+const validateTextInput = (input, value) => {
+    value = value.trim();
+    if (input === 'name') {
+        return (value.length === 0 || !/^[\a-zA-Z ]*$/.test(value)) ? false : true;
+    }
+    return (value.length === 0) ? false : true;
+}
 
 /* ###  clear/delete comments   ### */
 
-const clearComments = () => document.querySelector(".conversation__items").innerHTML = ' ';
+const clearComments = () => {
+    document.querySelector(".conversation__items").innerHTML = '';
+}
+
+/* ###  fetch comments   ### */
+
+const fetchComments = () => {
+    axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
+    .then(response => {
+       clearComments();
+       sortComments(response.data).forEach((comment, index, arr) => {
+           displayComment(comment, (index + 1 === arr.length));
+       });
+    })
+    .catch(error => {
+       console.log("Error: ", error);
+   }); 
+};
 
 /* ###  render comments on page   ### */
 
-const displayComment = comment => {
+const displayComment = (comment, lastComment) => {
     const classNameBlock = "conversation__";
-    
+
     const container = document.querySelector(`.${classNameBlock}items`);
-    // container.append(createElement("hr", [`${classNameBlock}divider`]));
 
     const commentItem = createElement("article", [`${classNameBlock}item`]);
+    commentItem.setAttribute('data-id', comment.id);
     
     const thumbnail = createElement("div", [`${classNameBlock}thumbnail`]);
     const avatar = createElement("div", [`${classNameBlock}avatar`]);
@@ -32,11 +51,49 @@ const displayComment = comment => {
     const name = setContent(createElement("h3", [`${classNameBlock}username`]), comment.name);
     const timestamp = setContent(createElement("span", [`${classNameBlock}timestamp`]), convertDate('comment', comment.timestamp));
     const body = setContent(createElement("p", [`${classNameBlock}body`]), comment.comment);
-    const divider = createElement("hr", [`${classNameBlock}divider`]);
+    
+    const reaction = createElement("div", [`${classNameBlock}reaction`]);
+    const likeCTA = createElement("a", [`${classNameBlock}like`]);
+    
+    likeCTA.addEventListener("click", () => {
+        axios.put(`${BASEURI}/comments/${comment.id}/like?api_key=${APIKEY}`)
+        .then(response => {
+            likeCounter.innerText = response.data.likes;
+        });
+    });
 
-    content.append(name, timestamp, body);
+    const likeHeart = createElement("i", [`fa-solid`, `fa-heart`]);
+    const likeCounter = setContent(createElement("span", [`${classNameBlock}counter`]), comment.likes);
+    likeCTA.append(likeHeart, likeCounter);
+    reaction.append(likeCTA);
+
+    const deleteCTA = createElement("a", [`${classNameBlock}delete`]);
+
+    deleteCTA.addEventListener("click", () => {
+        axios.delete(`${BASEURI}/comments/${comment.id}?api_key=${APIKEY}`)
+        .then(response => {
+            fetchComments();
+        });
+    });
+
+    const deleteTrash = createElement("i", [`fa-solid`, `fa-trash`]);
+    const deleteLabel = setContent(createElement("span", [`${classNameBlock}delete`]), "Delete");
+
+    deleteCTA.append(deleteTrash, deleteLabel);
+    reaction.append(deleteCTA);
+
+    const divider = createElement("hr", [`${classNameBlock}divider`]);
+    
+    content.append(name, timestamp, body, reaction);
     commentItem.append(thumbnail, content);
     container.append(commentItem, divider);
+
+    if (lastComment) {
+        container.insertBefore(
+            createElement("hr", [`${classNameBlock}divider`]),
+            document.querySelector(".conversation__item")
+        );
+    }
 }
 
 /* ###  handle comment submission  ### */
@@ -46,51 +103,41 @@ document.querySelector(".conversation__form").addEventListener("submit", event =
     
     const classNameBlock = "conversation__"; 
     const form = event.target;
-    const name = form.name.value.trim();
-    const comment = form.textarea.value.trim();
+    const name = form.name;
+    const nameData = name.value;
+    const comment = form.textarea;
+    const commentData = comment.value;
 
-    if (validateTextInput(name) && validateTextInput(comment)) {
+    if (validateTextInput('name', nameData) && validateTextInput('comment', commentData)) {
 
-        form.name.classList.remove(`${classNameBlock}input--error`);
-        form.textarea.classList.remove(`${classNameBlock}textarea--error`);
+        classModifier(name, 'remove', `${classNameBlock}input--error`);
+        classModifier(comment, 'remove', `${classNameBlock}input--error`);
 
         axios.post(`${BASEURI}/comments?api_key=${APIKEY}`, {
-            "name": name,
-            "comment": comment
+            "name": nameData,
+            "comment": commentData
         }).then(response => {
             form.reset();
-            return axios.get(`${BASEURI}/comments?api_key=${APIKEY}`);
-         })
-         .then(response => {
-            clearComments();
-            response.data.sort((a, b) => b.timestamp - a.timestamp).forEach(comment => {
-                displayComment(comment);
-            });          
+            fetchComments();
          })
          .catch(error => {
             console.log("Error: ", error);
          });
     } else {
-        (!validateTextInput(name)) ?
-            styleInvalidFormInput(form.name, 'add', `${classNameBlock}input--error`) :
-            styleInvalidFormInput(form.name, 'remove', `${classNameBlock}input--error`);
+        (!validateTextInput('name', nameData)) ?
+            classModifier(name, 'add', `${classNameBlock}input--error`) :
+            classModifier(name, 'remove', `${classNameBlock}input--error`);
 
-        (!validateTextInput(comment)) ?
-            styleInvalidFormInput(form.textarea, 'add', `${classNameBlock}textarea--error`) :
-            styleInvalidFormInput(form.textarea, 'remove', `${classNameBlock}textarea--error`);
+        (!validateTextInput('comment', commentData)) ?
+            classModifier(comment, 'add', `${classNameBlock}textarea--error`) :
+            classModifier(comment, 'remove', `${classNameBlock}textarea--error`);
     }
 });
 
-axios.get(`${BASEURI}/comments?api_key=${APIKEY}`)
-     .then(response => {
-        clearComments();
+const nameInput = document.querySelector(".conversation__input");
+nameInput.addEventListener("focus", () => classModifier(nameInput, 'remove', 'conversation__input--error'));
+const commentArea = document.querySelector(".conversation__textarea");
+commentArea.addEventListener("focus", () => classModifier(commentArea, 'remove', 'conversation__textarea--error'));
 
-        response.data.sort((a, b) => b.timestamp - a.timestamp).forEach(comment => {
-            displayComment(comment);
-        });
-     })
-     .catch(error => {
-        console.log("Error: ", error);
-    });
-
+fetchComments();
 improveMenuUsability();

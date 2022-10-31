@@ -226,8 +226,7 @@
         background-color: #f1f1f1;
 
         &--error {
-            border-color: #D22D2D;
-            box-shadow: 0 0 5px rgb(210, 45, 45, .5);   
+            border-color: $error-state-color;
         }
 
         @include tablet-responsive {
@@ -245,6 +244,9 @@
         font-family: $font-face;
         color: $primary-color-main;
         font-weight: 600;
+    }
+    &__input, &__textarea {
+        font-weight: 400;
     }
     
     &__textarea {
@@ -277,7 +279,7 @@
 
         justify-content: flex-start;
         flex-wrap: nowrap;
-        padding: 16px 0;
+        padding: $size-increment-x3 0;
     }
 
     &__content {
@@ -296,6 +298,28 @@
 
     &__body {
         @include flex-item-realestate(1, 1, 100%);
+        @include padding-component("mobile");
+    }
+
+    &__reaction {
+        @include flex-item-realestate(1, 1, 100%);
+        @extend .flex-container;
+
+        justify-content: space-between;
+        flex-wrap: nowrap;
+
+        a {
+            color: $primary-color-main;
+            transition: .3s all;
+            cursor: pointer;
+        }
+        a:hover {
+            color: $error-state-color;
+        }
+        span {
+            display: inline-block;
+            margin-left: $size-increment-x2;
+        }
     }
 }
 

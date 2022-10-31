@@ -23,6 +23,8 @@ $secondary-color-main: #000000;
 $secondary-color-alternate: #E1E1E1;
 $secondary-color-subsidiary: #FAFAFA;
 
+$error-state-color: #D22D2D;
+
 /* ##   font   ## */
 
 $font-path: "../assets/fonts";
@@ -31,34 +33,11 @@ $font-weight-regular: 400;
 $font-weight-demi: 600;
 $font-weight-bold: 700;
 
-/* ##   text styles   ## */
-
-$page-section-header: $size-increment-x4;
-$page-section-line-height: $size-increment-x5;
-
-$page-header-large: 3.75rem;
-$page-line-height-large: 4.25rem;
-
-$section-header-large: $size-increment-x5-1;
-$section-line-height: 2.75rem;
-
-/* ##   site Container   ## */ 
+/* ##   site Container   ## */
 
 $site-container: 1044px;
-
-/* ##   responsive breakpoint   ## */ 
-
 $desktop-resolution: 1280px;
 $tablet-resolution: 768px;
-
-/* ##   branding   ## */ 
-
-$logo-max-width: 120px;
-$logo-max-height: 20px;
-
-/* ##   buttons   ## */ 
-
-$large-screen-cta-min-width: 150px;
 
 /* ##   imagery   ## */ 
 $image-path: "../assets/images/";

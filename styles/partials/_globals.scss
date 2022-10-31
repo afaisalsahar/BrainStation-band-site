@@ -22,20 +22,20 @@ a {
     color: $primary-color-subsidiary;
 }
 h1, h2 {
-    font-size: $page-section-header;
-    line-height: $page-section-line-height;
+    font-size: $size-increment-x4;
+    line-height: $size-increment-x5;
     font-weight: $font-weight-demi;
 }
 h1 {
     @include tablet-responsive {
-        font-size: $page-header-large;
-        line-height: $page-line-height-large;
+        font-size: 3.75rem;
+        line-height: 4.25rem;
     }
 }
 h2 {
     @include tablet-responsive {
-        font-size: $section-header-large;
-        line-height: $section-line-height;
+        font-size: $size-increment-x5-1;
+        line-height: 2.75rem;
     }
 }
 h3, h4 {
@@ -58,7 +58,7 @@ hr {
 }
 
 .topbar__logo,
-.contact__logo {max-width: $logo-max-width;}
+.contact__logo {max-width: 120px;}
 
 .flex-container {
     display: flex;
@@ -71,7 +71,7 @@ hr {
 .container {
     @extend .flex-container;
     
-    max-width: 1044px;
+    max-width: $site-container;
     padding: 0 $size-increment-x3;
     margin: 0 auto;
 
@@ -91,7 +91,7 @@ hr {
     cursor: pointer;
 
     @include tablet-responsive {
-        min-width: $large-screen-cta-min-width;
+        min-width: 150px;
         padding: 0 $size-increment-x5;
     }
 }

@@ -22,15 +22,15 @@
         @include flex-item-realestate(1, 0, 100%);
         font-weight: $font-weight-demi;
 
+        @include padding-headline("mobile");
         @include tablet-responsive {
             font-size: $size-increment-x6;
             order: -1;
-            @include flex-item-realestate(1, 1, 30%);
+            @include flex-item-realestate(1, 1, 32%);
+            @include padding-headline("tablet");
         }
-
+        @include custom-responsive("min", 790px) {@include flex-item-realestate(1, 1, 30%);}
         @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
-        @include padding-headline("mobile");
-        @include tablet-responsive {@include padding-headline("tablet");}
     }
 
     &__social {
@@ -60,6 +60,11 @@
     &__point {
         @include flex-item-realestate(1, 0, 100%);
         @include tablet-responsive {@include flex-item-realestate(1, 0, 30%);}
+        @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
+    }
+    &__point:first-of-type {
+        @include tablet-responsive {@include flex-item-realestate(1, 0, 32%);}
+        @include custom-responsive("min", 790px) {@include flex-item-realestate(1, 0, 30%);}
         @include desktop-responsive {@include flex-item-realestate(0, 1, 30%);}
     }
 

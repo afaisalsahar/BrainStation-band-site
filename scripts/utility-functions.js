@@ -1,22 +1,32 @@
 const APIKEY = '147b6ef6-f201-4cd1-a5ae-e436ec7f7791';
 const BASEURI = 'https://project-1-api.herokuapp.com';
 
-/* ###  Create and return new element with target classnames   ### */
+/* ###  set/remove calsses   ### */
+
+const classModifier = (element, type, className) => {
+    if (type === 'add') {
+        element.classList.add(className);
+    } else {
+        element.classList.remove(className);
+    }
+}
+
+/* ###  create elements   ### */
 
 const createElement = (tag, classNames) => {
     const element = document.createElement(tag);
-    classNames.forEach(classname => element.classList.add(classname));
+    classNames.forEach(className => classModifier(element, 'add', className));
     return element;
 };
  
- /* ###  Set and return an elements content   ### */
+ /* ###  set element content   ### */
  
 const setContent = (element, content) => {
      element.innerText = content;
      return element;
 };
 
- /* ###  convert date epoch to human readable   ### */
+ /* ###  convert date - epoch to human readable   ### */
 
 const convertDate = (format, epochMS) => {
     const date = new Date(epochMS);
@@ -31,7 +41,13 @@ const convertDate = (format, epochMS) => {
     return newDate.join(' ');
 }
 
- /* ###  Improve link item usability   ### */
+ /* ###  improve menu ux   ### */
+
+ const sortComments = comments => {
+    return comments.sort((a, b) => b.timestamp - a.timestamp);
+ }
+
+ /* ###  improve menu ux   ### */
  
 const improveMenuUsability = () => {
     document.querySelectorAll(".topbar__item").forEach(element => {
@@ -40,4 +56,4 @@ const improveMenuUsability = () => {
 }
 
 export {APIKEY, BASEURI};
-export {createElement, setContent, convertDate, improveMenuUsability};
+export {createElement, classModifier, setContent, convertDate, sortComments, improveMenuUsability};
