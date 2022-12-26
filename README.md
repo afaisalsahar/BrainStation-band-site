@@ -5,7 +5,8 @@ This project entails creating a fully functional, interactive, multi-page live w
 BEM methodology is used for class names and Flexbox for layout. The layout is responsive and adapts at all dimensions. 
 
 
-![Mockup]()
+![Mockup](https://raw.githubusercontent.com/afaisalsahar/BrainStation-band-site/main/mockups/image/shows-mockup.jpg)
+![Mockup](https://raw.githubusercontent.com/afaisalsahar/BrainStation-band-site/main/mockups/image/biography-mockup.jpg)
 
 
 ## Functional Requirements
