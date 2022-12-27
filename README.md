@@ -1,5 +1,5 @@
 
-# BrainStation Travel Site
+# BrainStation Band Site
 
 This project entails creating a fully functional, interactive, multi-page live website for a band. Leveraging HTML, CSS/SASS, JavaScript, back-end API and component thinking.
 BEM methodology is used for class names and Flexbox for layout. The layout is responsive and adapts at all dimensions. 
